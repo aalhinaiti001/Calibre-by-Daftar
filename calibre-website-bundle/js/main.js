@@ -5,15 +5,56 @@
 /* --------------------------------------------------------------------------
    Site configuration — change contact details in one place.
    -------------------------------------------------------------------------- */
+const runtimeConfig = window.CALIBRE_CONFIG || {};
 const SITE = {
-  email: 'ahmad@daftaradvisory.com',
-  phone: '+962798880035',
-  // Optional: paste a Formspree endpoint (https://formspree.io) to have the
-  // contact form POST directly to your inbox without opening a mail client.
-  // Leave empty ('') to use the built-in mailto: fallback, which works with
-  // zero setup and no backend.
-  formEndpoint: 'https://formspree.io/f/xzdlnnva'
+  email: runtimeConfig.email || 'ahmad@daftaradvisory.com',
+  phone: runtimeConfig.phone || '+962798880035',
+  phoneDisplay: runtimeConfig.phoneDisplay || '+962 79 888 0035',
+  // Optional: set a deployment-specific endpoint (for example Formspree) via
+  // window.CALIBRE_CONFIG.formEndpoint or by editing this value directly.
+  // The checked-in bundle intentionally leaves this empty so previews, forks,
+  // and test deployments do not submit into the production inbox by default.
+  formEndpoint: runtimeConfig.formEndpoint || ''
 };
+
+function contactHref(kind, value) {
+  if (kind === 'email') {
+    return 'mailto:' + value + '?subject=' + encodeURIComponent('Calibre — Hiring Diagnostic Enquiry');
+  }
+  if (kind === 'phone') {
+    return 'tel:' + value;
+  }
+  if (kind === 'whatsapp') {
+    return 'https://wa.me/' + value.replace(/[^\d]/g, '') +
+      '?text=' + encodeURIComponent("Hi Calibre, I'd like to discuss a hiring diagnostic.");
+  }
+  return value;
+}
+
+/* --------------------------------------------------------------------------
+   Keep visible contact links/labels synced from one source of truth.
+   -------------------------------------------------------------------------- */
+(function () {
+  document.querySelectorAll('[data-site-email]').forEach(function (el) {
+    el.textContent = SITE.email;
+  });
+
+  document.querySelectorAll('[data-site-phone-display]').forEach(function (el) {
+    el.textContent = SITE.phoneDisplay;
+  });
+
+  document.querySelectorAll('[data-site-mail-link]').forEach(function (el) {
+    el.setAttribute('href', contactHref('email', SITE.email));
+  });
+
+  document.querySelectorAll('[data-site-phone-link]').forEach(function (el) {
+    el.setAttribute('href', contactHref('phone', SITE.phone));
+  });
+
+  document.querySelectorAll('[data-site-whatsapp-link]').forEach(function (el) {
+    el.setAttribute('href', contactHref('whatsapp', SITE.phone));
+  });
+})();
 
 /* --------------------------------------------------------------------------
    Count-up animation for the proof card scores
@@ -166,11 +207,11 @@ const SITE = {
           form.reset();
           setStatus('Thanks — your enquiry is on its way. We reply within one business day.', 'success');
         } else {
-          setStatus('Something went wrong. Please email ' + SITE.email + ' directly.', 'error');
+          sendViaMailto(v);
         }
       })
       .catch(function () {
-        setStatus('Network error. Please email ' + SITE.email + ' directly.', 'error');
+        sendViaMailto(v);
       });
   }
 

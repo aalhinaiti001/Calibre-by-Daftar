@@ -10,8 +10,9 @@ Wired throughout the site (email links, phone links, WhatsApp, and the contact f
 - **Email:** ahmad@daftaradvisory.com
 - **Phone / WhatsApp:** +962 79 888 0035
 
-To change them, edit the `SITE` object at the top of [`js/main.js`](js/main.js) and the
-`mailto:` / `tel:` links in [`index.html`](index.html) (search for the current values).
+To change them, edit the `SITE` object at the top of [`js/main.js`](js/main.js).
+The visible email / phone / WhatsApp links in [`index.html`](index.html) are populated
+from that config automatically.
 
 ## Project structure
 
@@ -45,10 +46,22 @@ Then visit http://localhost:8000.
 
 ## The contact form
 
-The form is live via [Formspree](https://formspree.io) — submissions POST directly to
-ahmad@daftaradvisory.com with no page reload, using the endpoint configured in
-`SITE.formEndpoint` in [`js/main.js`](js/main.js). If that endpoint is ever unset, the
-form automatically falls back to a `mailto:` link (zero backend, zero setup).
+The checked-in bundle defaults to `mailto:` only. This is intentional, so forks, previews,
+and test deployments do not send submissions into a production inbox by accident.
+
+If you want no-reload form submissions, set `SITE.formEndpoint` in
+[`js/main.js`](js/main.js) or inject it at deploy time with:
+
+```html
+<script>
+  window.CALIBRE_CONFIG = {
+    formEndpoint: 'https://formspree.io/f/your-id'
+  };
+</script>
+```
+
+When an endpoint is configured, the form will try the POST first and automatically fall
+back to `mailto:` if the network submission fails.
 
 ## Linking to Daftar Advisory
 
