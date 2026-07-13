@@ -1,0 +1,44 @@
+/* ─────────────────────────────────────────────────────────────
+   SPACING, RADII, SHADOWS, MOTION
+   4px base scale. Sections breathe (airy vertical rhythm).
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* section vertical rhythm — the three "density" moods */
+  --section-y-compact:  4rem;
+  --section-y-standard: 6rem;
+  --section-y-airy:     8.5rem;
+
+  /* max content width */
+  --container: 80rem; /* 1280px */
+
+  /* corner radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* borders */
+  --border-hairline: 1px solid var(--color-border);
+
+  /* shadows — soft, paper-like */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-card: 0 10px 30px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 24px 60px rgb(0 0 0 / 0.18);
+
+  /* motion — editorial ease, unhurried */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.25s;
+  --dur-med: 0.45s;
+  --dur-slow: 0.7s;
+}

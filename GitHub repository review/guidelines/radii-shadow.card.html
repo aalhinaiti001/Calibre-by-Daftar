@@ -1,0 +1,21 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Radii & shadow" subtitle="Soft paper-like elevation; medium rounding." -->
+<!DOCTYPE html>
+<html lang="en" data-mood="ink">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--color-bg);padding:24px;display:flex;gap:22px;align-items:flex-end;}
+  .box{background:var(--color-surface);border:1px solid var(--color-border);width:96px;height:70px;display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);font-size:11px;font-family:var(--font-mono);}
+  .lbl{font-size:10px;color:var(--color-text-muted);margin-top:8px;text-align:center;font-family:var(--font-mono);}
+  .col{display:flex;flex-direction:column;align-items:center;}
+</style>
+</head>
+<body>
+  <div class="col"><div class="box" style="border-radius:var(--radius-sm)">sm</div><div class="lbl">6px</div></div>
+  <div class="col"><div class="box" style="border-radius:var(--radius-md)">md</div><div class="lbl">8px</div></div>
+  <div class="col"><div class="box" style="border-radius:var(--radius-lg)">lg</div><div class="lbl">12px</div></div>
+  <div class="col"><div class="box" style="border-radius:var(--radius-xl)">xl</div><div class="lbl">16px</div></div>
+  <div class="col"><div class="box" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-card);border:none">shadow</div><div class="lbl">card</div></div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #16191B; }
+  a { color: #2E5E8C; text-decoration: none; }
+  a:hover { opacity: 0.85; }
+</style>
+<script type="application/json" id="speaker-notes">[
+"Open with the core claim: hiring decisions are noisier than the process admits. Calibre is a short diagnostic that finds the noise and reduces it on one priority role.",
+"The hook. Two recruiters read the same CV and scored it 82 vs 41 — a 41-point gap, as wide as two different people. The decision was about the reader, not the candidate.",
+"Name the cost. Inconsistent evaluation produces weak evidence: shortlists that don't hold up, slow decisions, vague feedback, and strong candidates slipping through.",
+"The fix in one line: define what good looks like before you look, then read against it. Four steps — Read, Score, Compare, Calibrate.",
+"Position it. Calibre isn't a personality test, an ATS, or interviewer training. It makes the evaluation criteria explicit, comparable, and defensible.",
+"What the client actually keeps: seven concrete tools they use on the next hire, not a workshop they forget.",
+"Who buys this: HR leaders, talent teams, hiring managers, and founders who hire often and need decisions that hold up.",
+"Why it works where other things don't: practical, role-specific, evidence-based, and immediately usable.",
+"The offer. A short, fixed-fee pilot on one live or recent role, with a clear before/after consistency check and an executive memo.",
+"Close. One role, one call — about 30 minutes to walk the process, find the noise, and show how Calibre cuts it."
+]</script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <section data-label="Title" data-screen-label="Title" data-speaker-notes="Open with the core claim: hiring decisions are noisier than the process admits. Calibre is a short diagnostic that finds the noise and reduces it on one priority role." style="padding:120px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.035) 1px,transparent 1px);background-size:44px 44px;">
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:52px;">
+      <svg viewBox="0 0 32 32" width="60" height="60" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#16191B"></rect><rect x="7.5" y="17" width="4" height="6" rx="1.3" fill="#5B6268"></rect><rect x="14" y="13" width="4" height="10" rx="1.3" fill="#8FA9C4"></rect><rect x="20.5" y="9" width="4" height="14" rx="1.3" fill="#2E5E8C"></rect><circle cx="22.5" cy="6.5" r="2" fill="#A8341F"></circle></svg>
+      <span style="font-size:38px;font-weight:700;letter-spacing:-0.02em;">Calibre <span style="font-family:'Fraunces',Georgia,serif;font-weight:700;color:#2E5E8C;">by Daftar</span></span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:0.18em;text-transform:uppercase;color:#6C7378;margin-bottom:40px;">Hiring Noise Diagnostic</div>
+    <h1 style="font-size:98px;font-weight:600;line-height:1.04;letter-spacing:-0.03em;margin:0;max-width:19ch;">Your hiring decisions are noisier than your process admits.</h1>
+    <p style="font-size:34px;line-height:1.6;color:#3A4045;max-width:56ch;margin:48px 0 0;">A practical scorecard, reading method, and calibration system — installed on one priority role.</p>
+  </section>
+
+  <section data-label="Two readers" data-screen-label="Two readers" data-speaker-notes="The hook. Two recruiters read the same CV and scored it 82 vs 41 — a 41-point gap, as wide as two different people. The decision was about the reader, not the candidate." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.03) 1px,transparent 1px);background-size:40px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">The problem, in one image</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:62px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;max-width:22ch;">Same candidate. Two readers. Different verdicts.</h2>
+    <div style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:72px;margin-top:24px;">
+      <div style="max-width:32ch;">
+        <p style="font-size:32px;line-height:1.7;color:#3A4045;margin:0;">Two recruiters read the same CV. One saw a strong shortlist candidate; the other saw a reject. Nothing about the candidate changed.</p>
+        <p style="font-size:26px;line-height:1.6;color:#5B6268;margin:32px 0 0;font-style:italic;">The decision wasn't about the candidate. It was about who read it.</p>
+      </div>
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:18px;padding:44px 56px;width:660px;flex:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.12em;text-transform:uppercase;color:#6C7378;border-bottom:1px solid #DDE1DA;padding-bottom:22px;margin-bottom:34px;"><span>Same candidate · Two readers</span><span style="color:#A6ADB2;">CV-0418</span></div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;">
+          <div style="text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.1em;text-transform:uppercase;color:#6C7378;margin-bottom:14px;">Reader A</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:92px;font-weight:600;line-height:1;letter-spacing:-0.03em;color:#16191B;">82</div>
+            <div style="font-size:20px;color:#6C7378;margin-top:4px;">/100</div>
+            <div style="font-size:23px;font-weight:600;color:#3E7A52;margin-top:16px;">↑ Strong shortlist</div>
+          </div>
+          <div style="width:1px;height:170px;background:#DDE1DA;"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.1em;text-transform:uppercase;color:#6C7378;margin-bottom:14px;">Reader B</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:92px;font-weight:600;line-height:1;letter-spacing:-0.03em;color:#B3392B;">41</div>
+            <div style="font-size:20px;color:#6C7378;margin-top:4px;">/100</div>
+            <div style="font-size:23px;font-weight:600;color:#B3392B;margin-top:16px;">↓ Reject</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid #DDE1DA;margin-top:32px;padding-top:24px;display:flex;gap:16px;justify-content:center;align-items:center;font-size:22px;color:#5B6268;"><span style="font-family:'JetBrains Mono',monospace;font-weight:600;color:#B3392B;">Δ 41 pts</span><span>As wide as the gap between two different people.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Cost of noise" data-screen-label="Cost of noise" data-speaker-notes="Name the cost. Inconsistent evaluation produces weak evidence: shortlists that don't hold up, slow decisions, vague feedback, and strong candidates slipping through." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.03) 1px,transparent 1px);background-size:40px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">01 · The problem</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">The hidden cost of hiring noise.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:0.85fr 1.15fr;gap:80px;align-items:center;margin-top:28px;">
+      <p style="font-size:32px;line-height:1.75;color:#3A4045;margin:0;">Two interviewers can assess the same candidate and reach opposite conclusions. Evidence stays weak, and the decisions can't be explained or defended.</p>
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:16px;padding:48px 52px;display:flex;flex-direction:column;gap:26px;">
+        <div style="display:flex;gap:20px;align-items:flex-start;"><span style="font-size:26px;color:#B3392B;line-height:1.4;">✕</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Inconsistent shortlists</strong> — the same CV gets different scores</span></div>
+        <div style="display:flex;gap:20px;align-items:flex-start;"><span style="font-size:26px;color:#B3392B;line-height:1.4;">✕</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Slow decisions</strong> — unclear criteria mean more back-and-forth</span></div>
+        <div style="display:flex;gap:20px;align-items:flex-start;"><span style="font-size:26px;color:#B3392B;line-height:1.4;">✕</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Unclear feedback</strong> — different language, different standards</span></div>
+        <div style="display:flex;gap:20px;align-items:flex-start;"><span style="font-size:26px;color:#B3392B;line-height:1.4;">✕</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Too much gut feeling</strong> — intuition standing in for evidence</span></div>
+        <div style="display:flex;gap:20px;align-items:flex-start;"><span style="font-size:26px;color:#B3392B;line-height:1.4;">✕</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Weak defensibility</strong> — you can't explain who you hired, or why</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="The method" data-screen-label="The method" data-speaker-notes="The fix in one line: define what good looks like before you look, then read against it. Four steps — Read, Score, Compare, Calibrate." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#ECEEE9;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">02 · The method</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:60px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;max-width:26ch;">Define good before you look — then read against it.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;align-items:stretch;margin-top:44px;">
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:500;color:#2E5E8C;line-height:1;margin-bottom:24px;">1</div>
+        <h3 style="font-size:30px;font-weight:600;margin:0 0 16px;">Read</h3>
+        <p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Standardize how CVs are interpreted, so two reviewers start from the same facts.</p>
+      </div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:500;color:#2E5E8C;line-height:1;margin-bottom:24px;">2</div>
+        <h3 style="font-size:30px;font-weight:600;margin:0 0 16px;">Score</h3>
+        <p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Define what "good" means for the role before a first impression forms.</p>
+      </div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:500;color:#2E5E8C;line-height:1;margin-bottom:24px;">3</div>
+        <h3 style="font-size:30px;font-weight:600;margin:0 0 16px;">Compare</h3>
+        <p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Find where reviewers disagree — and exactly why.</p>
+      </div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:500;color:#2E5E8C;line-height:1;margin-bottom:24px;">4</div>
+        <h3 style="font-size:30px;font-weight:600;margin:0 0 16px;">Calibrate</h3>
+        <p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Align the team on evidence, not preference, and recommend.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="What it is" data-screen-label="What it is" data-speaker-notes="Position it. Calibre isn't a personality test, an ATS, or interviewer training. It makes the evaluation criteria explicit, comparable, and defensible." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.03) 1px,transparent 1px);background-size:40px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">What Calibre is</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">It improves human judgment — it doesn't replace it.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:32px;">
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:16px;padding:52px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#6C7378;margin-bottom:24px;">Not</div>
+        <p style="font-size:34px;line-height:1.6;color:#5B6268;margin:0;">A personality test. Not another ATS. Not interviewer training.</p>
+      </div>
+      <div style="background:#16191B;border-radius:16px;padding:52px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#8FA9C4;margin-bottom:24px;">Instead</div>
+        <p style="font-size:34px;line-height:1.6;color:#F5F6F3;margin:0;font-weight:500;">It makes evaluation criteria explicit, comparable, and defensible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Outputs" data-screen-label="Outputs" data-speaker-notes="What the client actually keeps: seven concrete tools they use on the next hire, not a workshop they forget." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.03) 1px,transparent 1px);background-size:40px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">03 · What leaves the room</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">Concrete outputs, not a framework on a slide.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:22px 56px;align-content:center;margin-top:32px;">
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Role-specific scorecard</strong> — what "good" means, written down</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Candidate-reading guide</strong> — a shared standard for CVs</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Interview question bank</strong> — mapped to the criteria that matter</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Calibration session</strong> — reviewers align on evidence</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Hiring-risk notes</strong> — where the process is most exposed</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">One-page findings memo</strong> — a defensible record of what changed</span></div>
+      <div style="display:flex;gap:18px;align-items:flex-start;grid-column:1 / -1;"><span style="font-size:24px;color:#3E7A52;">✓</span><span style="font-size:27px;line-height:1.5;color:#3A4045;"><strong style="color:#16191B;font-weight:600;">Recommendation on scale</strong> — whether and how to extend the method beyond one role</span></div>
+    </div>
+  </section>
+
+  <section data-label="Who it's for" data-screen-label="Who it's for" data-speaker-notes="Who buys this: HR leaders, talent teams, hiring managers, and founders who hire often and need decisions that hold up." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#ECEEE9;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">04 · Who it's for</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">Built for teams that hire regularly.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;margin-top:44px;">
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-size:30px;font-weight:600;margin-bottom:16px;">HR leaders</div><p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Need consistency across teams and roles</p></div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-size:30px;font-weight:600;margin-bottom:16px;">Talent teams</div><p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Want less screening time, more accuracy</p></div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-size:30px;font-weight:600;margin-bottom:16px;">Hiring managers</div><p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Need clear, defensible decisions</p></div>
+      <div style="background:#F5F6F3;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-size:30px;font-weight:600;margin-bottom:16px;">Founders</div><p style="font-size:24px;line-height:1.6;color:#5B6268;margin:0;">Building a repeatable hiring process</p></div>
+    </div>
+  </section>
+
+  <section data-label="Different" data-screen-label="Different" data-speaker-notes="Why it works where other things don't: practical, role-specific, evidence-based, and immediately usable." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#F5F6F3;background-image:linear-gradient(rgba(22,25,27,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(22,25,27,0.03) 1px,transparent 1px);background-size:40px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">05 · What makes it different</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">Practical, role-specific, evidence-based.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;margin-top:44px;">
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;color:#2E5E8C;margin-bottom:18px;">◎</div><div style="font-size:28px;font-weight:600;margin-bottom:12px;">Practical</div><p style="font-size:23px;line-height:1.55;color:#5B6268;margin:0;">Built for real hiring teams, not theorists</p></div>
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;color:#2E5E8C;margin-bottom:18px;">▤</div><div style="font-size:28px;font-weight:600;margin-bottom:12px;">Role-specific</div><p style="font-size:23px;line-height:1.55;color:#5B6268;margin:0;">Tailored to your actual job, not generic</p></div>
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;color:#2E5E8C;margin-bottom:18px;">Δ</div><div style="font-size:28px;font-weight:600;margin-bottom:12px;">Evidence-based</div><p style="font-size:23px;line-height:1.55;color:#5B6268;margin:0;">Grounded in research, not trends</p></div>
+      <div style="background:#ECEEE9;border:1px solid #DDE1DA;border-radius:14px;padding:44px 36px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:34px;color:#2E5E8C;margin-bottom:18px;">»</div><div style="font-size:28px;font-weight:600;margin-bottom:12px;">Easy to use</div><p style="font-size:23px;line-height:1.55;color:#5B6268;margin:0;">Your team gets it immediately</p></div>
+    </div>
+  </section>
+
+  <section data-label="Pilot" data-screen-label="Pilot" data-speaker-notes="The offer. A short, fixed-fee pilot on one live or recent role, with a clear before/after consistency check and an executive memo." style="padding:88px 110px;display:flex;flex-direction:column;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#16191B;background-color:#ECEEE9;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:#6C7378;">06 · Start small</div>
+    <span style="display:block;width:64px;height:8px;margin-top:14px;background:repeating-linear-gradient(90deg,#2E5E8C 0 2px,transparent 2px,transparent 12px);"></span>
+    <h2 style="font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-0.025em;margin:22px 0 0;">Start with one live role.</h2>
+    <div style="flex:1;display:grid;grid-template-columns:1.05fr 0.95fr;gap:72px;align-items:center;margin-top:28px;">
+      <div>
+        <p style="font-size:31px;line-height:1.75;color:#3A4045;margin:0 0 26px;">We run the diagnostic on one active or recent role. Your team sees where evaluation diverges and which criteria need tightening — before committing to a wider rollout.</p>
+        <p style="font-size:31px;line-height:1.75;color:#3A4045;margin:0;">Most teams see clearer, faster decisions within the first month.</p>
+      </div>
+      <div style="background:#F5F6F3;border-left:5px solid #2E5E8C;border-radius:8px;padding:44px 48px;display:flex;flex-direction:column;gap:20px;">
+        <p style="font-size:27px;font-weight:500;color:#16191B;margin:0;">✓ &nbsp;Baseline review of recent decisions</p>
+        <p style="font-size:27px;font-weight:500;color:#16191B;margin:0;">✓ &nbsp;Role-fit scorecard</p>
+        <p style="font-size:27px;font-weight:500;color:#16191B;margin:0;">✓ &nbsp;Reviewer alignment session</p>
+        <p style="font-size:27px;font-weight:500;color:#16191B;margin:0;">✓ &nbsp;Before / after consistency check</p>
+        <p style="font-size:27px;font-weight:500;color:#16191B;margin:0;">✓ &nbsp;One-page executive memo</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Contact" data-screen-label="Contact" data-speaker-notes="Close. One role, one call — about 30 minutes to walk the process, find the noise, and show how Calibre cuts it." style="padding:110px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;color:#F5F6F3;background-color:#16191B;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.16em;text-transform:uppercase;color:#8FA9C4;">Get in touch</div>
+    <h2 style="font-size:76px;font-weight:600;line-height:1.08;letter-spacing:-0.03em;margin:26px 0 0;max-width:20ch;">Ready to reduce hiring noise?</h2>
+    <p style="font-size:32px;line-height:1.65;color:#B9C0C5;max-width:52ch;margin:34px 0 0;">Tell us about one role where the decisions feel shaky. In about 30 minutes we'll walk your process, find the noise, and show how Calibre cuts it.</p>
+    <div style="display:flex;gap:56px;margin-top:64px;flex-wrap:wrap;">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#6C7378;margin-bottom:12px;">Email</div><div style="font-size:30px;font-weight:600;">ahmad@daftaradvisory.com</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#6C7378;margin-bottom:12px;">Phone / WhatsApp</div><div style="font-size:30px;font-weight:600;">+962 79 888 0035</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#6C7378;margin-bottom:12px;">Based in</div><div style="font-size:30px;font-weight:600;">Amman · GCC &amp; MENA</div></div>
+    </div>
+    <div style="margin-top:72px;display:flex;align-items:center;gap:16px;font-family:'Fraunces',Georgia,serif;font-size:26px;color:#8FA9C4;">Calibre <span style="color:#F5F6F3;">by Daftar</span></div>
+  </section>
+
+</x-import>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calibre — The Sovereign Library</title>
+    <meta name="description" content="calibre is the free, open-source e-book manager: catalog, convert, edit, read, and self-host your private library across every device — no ads, no tracking.">
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="calibre — The Sovereign Library">
+    <meta property="og:description" content="The free, open-source e-book manager. Catalog, convert, edit, read, and self-host your private library — no ads, no tracking.">
+    <meta property="og:url" content="https://calibre-ebook.com/">
+    <meta property="og:image" content="https://calibre-ebook.com/img/calibre-banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Inline SVG favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23265147'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-style='italic' fill='%23FAF8F5' text-anchor='middle'%3Ec%3C/text%3E%3C/svg%3E">
+    <!--
+      NOTE: This uses the Tailwind Play CDN, which compiles CSS in the browser at
+      runtime. It's great for prototyping but Tailwind advises against it in
+      production (flash of unstyled content, no offline support). Before deploying,
+      swap this for a built stylesheet via the Tailwind CLI / PostCSS build step.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: {
+                            50: '#FDFDFD',
+                            100: '#FAF8F5',
+                            200: '#F3EFE9',
+                        },
+                        ink: {
+                            800: '#1E2522',
+                            950: '#121715',
+                        },
+                        forest: {
+                            50: '#F0F5F3',
+                            600: '#265147',
+                            700: '#1C3D35',
+                            900: '#0E211B',
+                        },
+                        clay: {
+                            500: '#B25B3C',
+                            600: '#8F4830',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Lora (Editorial) & Plus Jakarta Sans (Functional UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-paper-100 text-ink-950 font-sans antialiased selection:bg-forest-600 selection:text-white">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:bg-ink-950 focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-semibold">Skip to content</a>
+
+    <!-- Editorial Header Navigation -->
+    <header class="border-b border-stone-200/80 bg-paper-100/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <!-- Logo with Editorial Touch -->
+            <a href="#" class="flex items-center gap-3 group">
+                <span class="font-serif text-2xl font-bold tracking-tight text-forest-600 italic">calibre.</span>
+                <span class="text-[10px] tracking-widest uppercase text-stone-500 font-semibold border-l border-stone-200 pl-3 hidden sm:inline">v9.11</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="text-stone-600 hover:text-forest-600 transition-colors">The Software</a>
+                <a href="#shelf" class="text-stone-600 hover:text-forest-600 transition-colors">Digital Shelf</a>
+                <a href="#capabilities" class="text-stone-600 hover:text-forest-600 transition-colors">Capabilities</a>
+                <a href="https://manual.calibre-ebook.com/" target="_blank" rel="noopener" class="text-stone-600 hover:text-forest-600 transition-colors flex items-center gap-1.5">
+                    Manual <i data-lucide="external-link" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                </a>
+            </nav>
+
+            <!-- CTA & Actions -->
+            <div class="flex items-center gap-5">
+                <a href="https://github.com/kovidgoyal/calibre" target="_blank" rel="noopener" class="text-stone-500 hover:text-ink-950 transition-colors hidden sm:block" aria-label="calibre source code on GitHub">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.44-2.7 5.42-5.27 5.7.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"></path></svg>
+                </a>
+                <a href="#downloads" class="bg-forest-600 hover:bg-forest-700 text-white text-xs font-semibold tracking-wider uppercase px-6 py-3 rounded-md transition-all shadow-sm">
+                    Get Calibre
+                </a>
+                <!-- Mobile menu toggle -->
+                <button id="menuToggle" type="button" class="md:hidden text-stone-700 hover:text-forest-600 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu panel -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-stone-200/80 bg-paper-100">
+            <nav aria-label="Mobile" class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1 text-sm font-medium">
+                <a href="#about" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">The Software</a>
+                <a href="#shelf" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">Digital Shelf</a>
+                <a href="#capabilities" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">Capabilities</a>
+                <a href="https://manual.calibre-ebook.com/" target="_blank" rel="noopener" class="py-3 text-stone-700 hover:text-forest-600 transition-colors flex items-center gap-1.5">Manual <i data-lucide="external-link" class="w-3.5 h-3.5" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </header>
+
+  <main id="main">
+
+    <!-- Hero / Introduction -->
+    <section class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+
+                <!-- Editorial Copy -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div class="inline-flex items-center gap-3">
+                        <span class="h-[1px] w-8 bg-clay-500"></span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-clay-500">Established 2006</span>
+                    </div>
+                    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight text-ink-950">
+                        The sovereign <br>
+                        <span class="italic text-forest-600 font-medium">digital shelf.</span>
+                    </h1>
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed font-serif font-light max-w-xl">
+                        Calibre remains the quiet, open-source champion of book curation. It is an uncompromised, free ecosystem to catalog, convert, read, and safeguard your private library without corporate silos.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4 items-center">
+                        <a href="#downloads" class="bg-ink-950 hover:bg-forest-600 text-white font-semibold text-sm px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                            Download for Desktop <i data-lucide="arrow-right-circle" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="#capabilities" class="text-stone-700 hover:text-forest-600 font-semibold text-sm px-6 py-4 flex items-center gap-2">
+                            Explore Capabilities <i data-lucide="chevron-down" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-8 pt-6 border-t border-stone-200 max-w-md">
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">20+ Yrs</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Development</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">100%</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Open Source</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">No Ads</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Or Tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curated Book Display Preview -->
+                <div class="lg:col-span-6 relative">
+                    <!-- Pure CSS Editorial Frame -->
+                    <div class="absolute inset-0 bg-[#E8E2D7] rounded-lg -rotate-2 transform scale-[1.02] shadow-sm" aria-hidden="true"></div>
+                    <div class="relative bg-[#FAF6EE] border border-stone-200/80 rounded-lg p-8 shadow-xl space-y-8">
+                        <div class="flex items-center justify-between border-b border-stone-200 pb-4">
+                            <div>
+                                <span class="font-serif italic text-lg text-ink-950 font-medium">Reader's Catalog</span>
+                                <span class="text-[11px] block text-stone-500 uppercase font-medium mt-0.5">384 Works Collected</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="p-2 bg-paper-100 rounded border border-stone-200 text-stone-600 cursor-pointer hover:bg-stone-50"><i data-lucide="search" class="w-4 h-4" aria-hidden="true"></i></span>
+                                <span class="p-2 bg-paper-100 rounded border border-stone-200 text-stone-600 cursor-pointer hover:bg-stone-50"><i data-lucide="sliders-horizontal" class="w-4 h-4" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Grid representing highly curated digital bookshelf layout -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                            <!-- Digital Cover 1 -->
+                            <div class="group cursor-pointer space-y-3">
+                                <div class="aspect-[3/4.2] bg-[#E5DCCB] border border-stone-300 p-4 flex flex-col justify-between shadow-sm transition-transform group-hover:-translate-y-1">
+                                    <div class="text-[10px] uppercase tracking-widest text-stone-600 font-bold">Classic</div>
+                                    <div class="font-serif text-sm font-semibold text-ink-950 leading-snug">The Odyssey of Code</div>
+                                    <div class="text-[10px] text-stone-600">HOMER • EPUB</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-ink-950 truncate">The Odyssey of Code</h4>
+                                    <p class="text-[11px] text-stone-500">Homer • Stars 5.0</p>
+                                </div>
+                            </div>
+                            <!-- Digital Cover 2 -->
+                            <div class="group cursor-pointer space-y-3">
+                                <div class="aspect-[3/4.2] bg-[#1E2E28] text-paper-100 border border-forest-900/40 p-4 flex flex-col justify-between shadow-sm transition-transform group-hover:-translate-y-1">
+                                    <div class="text-[10px] uppercase tracking-widest text-stone-300 font-bold">Design</div>
+                                    <div class="font-serif text-sm font-semibold leading-snug">Typographic Form</div>
+                                    <div class="text-[10px] text-stone-300">TSCHICHOLD • MOBI</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-ink-950 truncate">Typographic Form</h4>
+                                    <p class="text-[11px] text-stone-500">J. Tschichold • Stars 4.8</p>
+                                </div>
+                            </div>
+                            <!-- Digital Cover 3 hidden on tiny screens -->
+                            <div class="group cursor-pointer space-y-3 hidden sm:block">
+                                <div class="aspect-[3/4.2] bg-[#E7CFBF] border border-stone-300 p-4 flex flex-col justify-between shadow-sm transition-transform group-hover:-translate-y-1">
+                                    <div class="text-[10px] uppercase tracking-widest text-stone-600 font-bold">Philosophical</div>
+                                    <div class="font-serif text-sm font-semibold text-ink-950 leading-snug">Sovereign Reading</div>
+                                    <div class="text-[10px] text-stone-600">MONTAIGNE • AZW3</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-ink-950 truncate">Sovereign Reading</h4>
+                                    <p class="text-[11px] text-stone-500">M. Montaigne • Stars 4.9</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Quote / Philosophical Statement -->
+    <section id="about" class="py-20 lg:py-28 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <span class="text-xs uppercase tracking-widest font-bold text-forest-600">The Core Philosophy</span>
+            <blockquote class="font-serif text-2xl sm:text-3xl lg:text-4xl italic text-ink-950 leading-relaxed font-light">
+                &ldquo;Books are quiet artifacts in an otherwise noisy digital world. calibre ensures your books remain your property—shielded from vendor platforms, proprietary wrappers, and changing formats.&rdquo;
+            </blockquote>
+            <p class="text-sm uppercase tracking-widest text-stone-500 font-semibold">Illustrative — the calibre project ethos</p>
+        </div>
+    </section>
+
+    <!-- Digital Shelf Feature / Interactive Preview -->
+    <section id="shelf" class="py-20 lg:py-32 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-clay-500">A Dynamic UI</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+                        Tailored for those who cherish books.
+                    </h2>
+                    <p class="text-stone-600 font-serif text-base leading-relaxed">
+                        Calibre offers intuitive ways to catalog and reference literature. With multiple layout options, search engines, and live tag structures, organizing huge catalogs is swift and delightful.
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">I</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Intelligent Meta Retrieval</h3>
+                                <p class="text-xs text-stone-600 mt-1">Directly search and download tags, series, cover graphics, and publishing dates from global open databases.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">II</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Precision Annotation Exporting</h3>
+                                <p class="text-xs text-stone-600 mt-1">Export annotations in styled HTML pages that support both dark/light modes and query filtering.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Interface Wire Representation -->
+                <div class="lg:col-span-7 bg-white border border-stone-200 rounded-xl p-6 shadow-md relative">
+                    <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-4">
+                        <div class="flex gap-1.5" aria-hidden="true">
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                        </div>
+                        <span class="text-xs text-stone-500 font-mono">Calibre 9.11 — Content Server</span>
+                        <div class="w-12"></div>
+                    </div>
+                    <!-- Mocked Sidebar Content Server UI -->
+                    <div class="grid grid-cols-12 gap-4">
+                        <div class="col-span-4 bg-stone-50 border border-stone-200/60 rounded-lg p-3 space-y-4">
+                            <div class="text-[11px] uppercase font-bold tracking-wider text-stone-500">Library Menu</div>
+                            <ul class="space-y-2 text-[12px] text-stone-600">
+                                <li class="font-bold text-forest-600 flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5" aria-hidden="true"></i> All Books</li>
+                                <li class="flex items-center gap-1 hover:text-ink-950 transition-colors"><i data-lucide="users" class="w-3.5 h-3.5" aria-hidden="true"></i> Authors</li>
+                                <li class="flex items-center gap-1 hover:text-ink-950 transition-colors"><i data-lucide="tags" class="w-3.5 h-3.5" aria-hidden="true"></i> Custom Tags</li>
+                                <li class="flex items-center gap-1 hover:text-ink-950 transition-colors"><i data-lucide="sparkles" class="w-3.5 h-3.5" aria-hidden="true"></i> Ask AI <span class="text-[9px] bg-clay-500 text-white px-1 rounded">New</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-span-8 bg-paper-100/50 rounded-lg border border-stone-200/60 p-4 space-y-3">
+                            <div class="text-[12px] font-bold text-ink-950">Ask AI Workspace</div>
+                            <p class="text-[11px] text-stone-600 italic bg-white p-2.5 rounded border border-stone-200 leading-relaxed">
+                                "{selected} Summarize this chapter's philosophical themes regarding modern digital isolation."
+                            </p>
+                            <div class="flex justify-end">
+                                <button class="text-[11px] bg-forest-600 text-white font-bold py-1.5 px-3 rounded flex items-center gap-1 hover:bg-forest-700 transition-colors">
+                                    Analyze <i data-lucide="sparkle" class="w-3 h-3" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities / Product Benefits Bento -->
+    <section id="capabilities" class="py-20 lg:py-32 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+                <span class="text-xs uppercase tracking-widest font-bold text-forest-600">Functional Depth</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+                    Five columns of digital custody.
+                </h2>
+                <p class="text-stone-500 text-sm sm:text-base font-serif">
+                    Calibre does more than catalog books—it edits, converts, hosts, fetches, and delivers.
+                </p>
+            </div>
+
+            <!-- Bento Editorial Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Bento I -->
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">I.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Dynamic Conversion</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">
+                            Convert any format to clean, native layouts. Automatically transform EPUB, AZW3, MOBI, and PDF into correct structural files custom-tailored for your specific reader.
+                        </p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Smart Engine • Auto-Sync</span>
+                </div>
+
+                <!-- Bento II -->
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">II.</span>
+                        <h3 class="text-lg font-bold text-ink-950">E-Ink Sync Pipeline</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">
+                            Connect and load. Calibre identifies target Kindle, Kobo, or Pocketbook devices instantly and pushes structural database updates without data tracking.
+                        </p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">USB • Wireless sync</span>
+                </div>
+
+                <!-- Bento III -->
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">III.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Direct Code Editing</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">
+                            Access inside the packaging. Calibre contains a dedicated editor where you can parse internal HTML, fix CSS level 4 queries, edit covers, and compress images directly.
+                        </p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">HTML5/CSS4 • Image Compress</span>
+                </div>
+
+                <!-- Bento IV -->
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">IV.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Periodical Harvesting</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">
+                            Automate news fetching. Grab complex RSS schedules of periodicals like Scientific American or Phoronix and compile them into books for quiet morning reads.
+                        </p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Daily Cron • Clean Typography</span>
+                </div>
+
+                <!-- Bento V -->
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">V.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Private Web Server</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">
+                            Self-host a server with a modern sidebar and HTTPS support. Access your collection via mobile web browsers or install the workspace as a progressive web app (PWA).
+                        </p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Private Server • HTTPS PWA</span>
+                </div>
+
+                <!-- Bento VI (Community contribution block) -->
+                <div class="bg-forest-50 border border-forest-600/10 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-forest-600/40 font-bold" aria-hidden="true">VI.</span>
+                        <h3 class="text-lg font-bold text-forest-600">100% Free Domain</h3>
+                        <p class="text-xs text-forest-900/80 leading-relaxed font-serif">
+                            No telemetry, no advertisements, and no recurring license models. Calibre remains independent, driven entirely by voluntary contributions from global readers.
+                        </p>
+                    </div>
+                    <a href="https://calibre-ebook.com/donate" target="_blank" rel="noopener" class="text-[11px] uppercase tracking-wider font-bold text-clay-600 hover:text-clay-500 transition-colors flex items-center gap-1">
+                        Support the Mission <i data-lucide="heart" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 lg:py-32 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs uppercase tracking-widest font-bold text-clay-500">The Global Reader's Voice</span>
+                <h2 class="font-serif text-3xl font-semibold tracking-tight mt-2">Endorsed by collectors and scholars</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="border-t border-stone-300 pt-6 space-y-4">
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">
+                        "For over fifteen years, Calibre has kept my critical research files secure across four generations of reader configurations. It operates silently, reliably, and perfectly."
+                    </p>
+                    <div>
+                        <span class="block text-xs font-bold text-ink-950">Cirlonde</span>
+                        <span class="block text-[11px] text-stone-500">Library Contributor, Reddit</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="border-t border-stone-300 pt-6 space-y-4">
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">
+                        "I use Calibre to pull custom periodical feeds every morning, compiling them into clear, read-focused layouts for my paper-white screen. A beautiful utility."
+                    </p>
+                    <div>
+                        <span class="block text-xs font-bold text-ink-950">Alex J.</span>
+                        <span class="block text-[11px] text-stone-500">Software Architect</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="border-t border-stone-300 pt-6 space-y-4">
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">
+                        "Unlike proprietary book platforms that alter your titles and locking mechanisms on a whim, Calibre keeps my book files cleanly on my own hardware."
+                    </p>
+                    <div>
+                        <span class="block text-xs font-bold text-ink-950">Dr. Helen V.</span>
+                        <span class="block text-[11px] text-stone-500">Archival Academic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="py-20 lg:py-32 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-forest-900 text-paper-100 rounded-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
+                <!-- Soft Warm Glow -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(178,91,60,0.14),transparent_40%)]" aria-hidden="true"></div>
+
+                <div class="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-clay-500 font-bold block">Cross-Platform Distribution</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-semibold leading-tight text-white">
+                            Download the core application.
+                        </h2>
+                        <p class="text-sm text-stone-300 font-serif max-w-sm leading-relaxed">
+                            Select the layout matching your workstation. Fully compatible with Windows 10/11, modern Apple Silicon macOS, and standard Linux distributions.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <!-- OS Item 1 -->
+                        <a href="https://download.calibre-ebook.com/9.html" class="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-lg block transition-all group">
+                            <i data-lucide="monitor" class="w-5 h-5 text-clay-500 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-clay-500 transition-colors">Windows</h3>
+                            <p class="text-[11px] text-stone-300 mt-1 leading-snug">64-bit Installer & Portable builds.</p>
+                        </a>
+                        <!-- OS Item 2 -->
+                        <a href="https://download.calibre-ebook.com/9.html" class="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-lg block transition-all group">
+                            <i data-lucide="laptop" class="w-5 h-5 text-clay-500 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-clay-500 transition-colors">macOS</h3>
+                            <p class="text-[11px] text-stone-300 mt-1 leading-snug">M1/M2/M3 native packages.</p>
+                        </a>
+                        <!-- OS Item 3 -->
+                        <a href="https://calibre-ebook.com/download_linux" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-lg block transition-all group">
+                            <i data-lucide="terminal" class="w-5 h-5 text-clay-500 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-clay-500 transition-colors">Linux</h3>
+                            <p class="text-[11px] text-stone-300 mt-1 leading-snug">Command interface installer packages.</p>
+                        </a>
+                        <!-- OS Item 4 -->
+                        <a href="https://download.calibre-ebook.com/9.html" class="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-lg block transition-all group">
+                            <i data-lucide="tablet" class="w-5 h-5 text-clay-500 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-clay-500 transition-colors">Mobile</h3>
+                            <p class="text-[11px] text-stone-300 mt-1 leading-snug">Calibre companion for iOS & Android.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-16 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
+            <h2 class="font-serif text-2xl font-semibold text-ink-950">A collective effort</h2>
+            <p class="text-stone-500 text-sm max-w-md mx-auto font-serif">
+                Calibre is sustained by donor patronage. Consider contributing a small donation to ensure active monthly updates.
+            </p>
+            <div class="pt-2">
+                <a href="https://calibre-ebook.com/donate" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-clay-500 hover:bg-clay-600 text-white text-xs font-semibold uppercase tracking-wider px-6 py-3.5 rounded-md transition-colors shadow-sm">
+                    Fund Core Development <i data-lucide="gift" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+    <!-- Footer -->
+    <footer class="bg-ink-950 text-stone-400 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
+            <div class="col-span-2 space-y-4">
+                <span class="font-serif text-3xl font-bold italic tracking-tight text-white block">calibre.</span>
+                <p class="text-xs text-stone-400 leading-relaxed max-w-xs font-serif">
+                    Independent, secure, and completely open-source. Safeguarding your digital literature since 2006.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">Core Software</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="https://manual.calibre-ebook.com/" class="hover:text-white transition-colors">Documentation</a></li>
+                    <li><a href="https://calibre-ebook.com/creating_plugins.html" class="hover:text-white transition-colors">Plugin System</a></li>
+                    <li><a href="https://github.com/kovidgoyal/calibre" class="hover:text-white transition-colors">GitHub Repository</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">Community</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="https://www.mobileread.com/forums/forumdisplay.php?f=166" class="hover:text-white transition-colors">MobileRead Forums</a></li>
+                    <li><a href="https://bugs.launchpad.net/calibre" class="hover:text-white transition-colors">Bugs & Tickets</a></li>
+                    <li><a href="https://calibre-ebook.com/donate" class="hover:text-white transition-colors">Donation Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">Licensing</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="https://github.com/kovidgoyal/calibre/blob/master/LICENSE" class="hover:text-white transition-colors">GNU GPL v3 License</a></li>
+                    <li><a href="https://calibre-ebook.com/" class="hover:text-white transition-colors">Official Website</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <p class="text-stone-500 font-serif">&copy; 2026 Kovid Goyal &amp; Global Contributors. This interface is an independent, unofficial design concept.</p>
+            <div class="flex gap-6 text-stone-400">
+                <a href="https://github.com/kovidgoyal/calibre" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://calibre-ebook.com/" class="hover:text-white transition-colors">Main Site</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle + icon init -->
+    <script>
+        (function () {
+            const toggle = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobileMenu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', function () {
+                    const open = menu.classList.toggle('hidden') === false;
+                    toggle.setAttribute('aria-expanded', String(open));
+                    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                });
+                menu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        menu.classList.add('hidden');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        toggle.setAttribute('aria-label', 'Open menu');
+                    });
+                });
+            }
+            if (window.lucide) lucide.createIcons();
+        })();
+    </script>
+</body>
+</html>
