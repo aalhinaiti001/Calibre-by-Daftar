@@ -63,11 +63,17 @@ function contactHref(kind, value) {
   const scores = document.querySelectorAll('.proof-score');
   let animated = false;
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function animateScores() {
     if (animated) return;
     animated = true;
     scores.forEach(function (el) {
       const target = parseInt(el.getAttribute('data-target'), 10);
+      if (prefersReducedMotion) {
+        el.textContent = target;
+        return;
+      }
       const duration = 900;
       const start = performance.now();
       function tick(now) {

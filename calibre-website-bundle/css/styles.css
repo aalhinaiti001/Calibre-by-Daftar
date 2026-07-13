@@ -51,6 +51,32 @@ a:hover {
   opacity: 0.8;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 60;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
 ::selection {
   background: var(--blue);
   color: var(--bg);
@@ -293,7 +319,7 @@ nav a:hover {
 }
 
 .proof-card-id {
-  color: var(--muted-3);
+  color: var(--muted-2);
 }
 
 .proof-card-body {
@@ -416,7 +442,7 @@ nav a:hover {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted-3);
+  color: var(--muted-2);
   transition: color 0.4s ease;
   text-align: center;
 }
@@ -1187,5 +1213,25 @@ footer {
 
   .contact-form {
     padding: 22px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .module-card:hover {
+    transform: none;
   }
 }
