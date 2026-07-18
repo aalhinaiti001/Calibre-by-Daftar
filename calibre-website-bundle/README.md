@@ -1,115 +1,109 @@
 # Calibre by Daftar — Website
 
-A fast, dependency-free marketing site for **Calibre by Daftar**, the hiring-decision
-diagnostic. Pure HTML/CSS/JS — no build step, no framework, no server required.
+A fast, **fully self-contained** marketing site for **Calibre by Daftar**, the
+hiring-decision diagnostic. Pure HTML/CSS/JS — no build step, no framework, no server,
+and **zero external requests at runtime** (fonts, styles, and icons are all vendored
+locally, so the page renders identically on any network — including locked-down ones).
+
+## Design
+
+This is the **Guesswork** design: a warm, editorial treatment (Lora serif display +
+Plus Jakarta Sans body) with four built-in themes — `paper` (default), `ink`, `clay`,
+and `midnight` — toggled by the **Feel** control in the bottom-right. It's the sibling
+voice to the [Daftar Advisory](https://daftaradvisory.com) site.
 
 ## Contact details
 
-Wired throughout the site (email links, phone links, WhatsApp, and the contact form):
+Wired throughout the page as direct links (no build config):
 
 - **Email:** ahmad@daftaradvisory.com
 - **Phone / WhatsApp:** +962 79 888 0035
+- **Book a call:** Calendly link in the contact section
 
-To change them, edit the `SITE` object at the top of [`js/main.js`](js/main.js).
-The visible email / phone / WhatsApp links in [`index.html`](index.html) are populated
-from that config automatically.
+To change them, edit the links directly in [`index.html`](index.html) — the contact
+section is clearly commented.
 
 ## Project structure
 
 ```
-calibre-website/
-├── index.html        # The full page
+calibre-website-bundle/
+├── index.html          # The full page (all copy + inline SVG icons + inline JS)
 ├── css/
-│   └── styles.css    # All styling (design tokens as CSS variables at the top)
-├── js/
-│   └── main.js       # Score animation, method stepper, and the contact form
-├── favicon.svg       # Brand mark (also used in the header)
-├── 404.html          # Friendly not-found page
-├── robots.txt        # Search-engine directives
+│   └── tailwind.css    # Tailwind utilities, prebuilt (no CDN) — see "Rebuilding" below
+├── fonts/
+│   ├── fonts.css       # @font-face rules → the local woff2 files
+│   ├── lora-normal.woff2, lora-italic.woff2
+│   └── jakarta-normal.woff2, jakarta-italic.woff2
+├── favicon*.png / icon*.{png,svg}   # Favicons + PWA icons
+├── site.webmanifest    # PWA manifest (Guesswork theme colours)
+├── 404.html            # Friendly not-found page (self-contained)
+├── robots.txt          # Search-engine directives
 └── README.md
 ```
+
+There is **no `js/` directory** — the theme toggle, scroll-reveal, and the count-up
+animation are small inline `<script>` blocks at the bottom of `index.html`. Icons are
+inline SVGs (vendored from [Lucide](https://lucide.dev), ISC-licensed), not a runtime
+icon library.
 
 ## Running it locally
 
 It's a static site, so just open `index.html` in a browser. To serve it over HTTP
-(recommended, so relative paths and the form behave exactly as in production):
+(recommended, so relative paths resolve exactly as in production):
 
 ```bash
-# Python 3
-python -m http.server 8000
-
-# or Node
-npx serve .
+python -m http.server 8000    # then visit http://localhost:8000
 ```
 
-Then visit http://localhost:8000.
+## Rebuilding `css/tailwind.css`
 
-## The contact form
+The stylesheet is a prebuilt Tailwind file (the original prototype used the Tailwind Play
+CDN; it was compiled to a static file so the site has no external dependency). If you add
+or change Tailwind utility classes in `index.html`, regenerate it:
 
-The checked-in bundle defaults to `mailto:` only. This is intentional, so forks, previews,
-and test deployments do not send submissions into a production inbox by accident.
-
-If you want no-reload form submissions, set `SITE.formEndpoint` in
-[`js/main.js`](js/main.js) or inject it at deploy time with:
-
-```html
-<script>
-  window.CALIBRE_CONFIG = {
-    formEndpoint: 'https://formspree.io/f/your-id'
-  };
-</script>
+```bash
+npx tailwindcss@3 -c tailwind.config.js -i input.css -o css/tailwind.css --minify
 ```
 
-When an endpoint is configured, the form will try the POST first and automatically fall
-back to `mailto:` if the network submission fails.
+…with a `tailwind.config.js` whose `content` points at `index.html` and whose
+`theme.extend` carries the `paper` / `ink` / `forest` / `clay` colour scale and the
+`Lora` / `Plus Jakarta Sans` font families (the same tokens defined as CSS variables in
+the `<style>` block of `index.html`).
+
+## Fonts
+
+**Lora** (serif display) and **Plus Jakarta Sans** (UI/body) are vendored as variable
+woff2 files under `fonts/` and declared in `fonts/fonts.css`. They were sourced from the
+[Fontsource](https://fontsource.org) packages `@fontsource-variable/lora` and
+`@fontsource-variable/plus-jakarta-sans` — no Google Fonts CDN call is made.
 
 ## Linking to Daftar Advisory
 
 Calibre is a sibling site to the main [Daftar Advisory](https://daftaradvisory.com)
-website, cross-linked on the established subdomain scheme:
+website, cross-linked on the subdomain scheme:
 
 | Site | URL |
 |---|---|
 | Daftar Advisory (main) | `https://daftaradvisory.com` |
 | Calibre by Daftar (this site) | `https://calibre.daftaradvisory.com` |
 
-- **This site → Daftar Advisory:** the "Daftar Advisory" credibility strip and footer
-  link already point to `https://daftaradvisory.com`.
-- **Daftar Advisory → Calibre:** the main site's "From the practice" band links here via
-  `https://calibre.daftaradvisory.com/` (currently a placeholder pending DNS — see the
-  `TODO` comment in that site's `index.html`, right above the link).
-
-Once this bundle is deployed at the `calibre.daftaradvisory.com` subdomain, remove that
-`TODO` comment on the main site — the link will resolve immediately since the URL is
-already correct.
+The header "Scope a call" strip and the footer already link back to Daftar Advisory.
 
 ## Deploying
 
-`calibre-website-bundle.zip` (one level up from this folder) is a ready-to-upload copy
-of everything in this directory — hand it to any static host, or unzip it directly onto
-the `calibre.daftaradvisory.com` subdomain root. To rebuild it after edits:
+Any static host works — point it at this folder:
 
-```powershell
-Compress-Archive -Path "calibre-website\*" -DestinationPath "calibre-website-bundle.zip" -Force
-```
-
-Any static host works — point it at this folder (or the unzipped bundle):
-
-- **Netlify / Vercel:** drag-and-drop the folder/zip, or connect the repo. No build
-  command; publish directory is the project root. Set the custom domain to
-  `calibre.daftaradvisory.com`.
-- **GitHub Pages:** push to a repo, enable Pages on the `main` branch (root), and add a
-  `CNAME` file containing `calibre.daftaradvisory.com`.
+- **Netlify:** `netlify.toml` (repo root) already sets `publish = "calibre-website-bundle"`.
+- **GitHub Pages:** `.github/workflows/deploy-pages.yml` uploads this folder as the Pages
+  artifact.
 - **Cloudflare Pages / S3 / any web server:** upload the files as-is and point the
-  subdomain's DNS (CNAME record) at the host.
-
-Whichever host you pick, add a DNS `CNAME` record for `calibre` → the host's target, then
-update the TODO'd link on the main site as noted above.
+  `calibre.daftaradvisory.com` DNS `CNAME` at the host.
 
 ## Customising
 
-- **Colours & type:** all design tokens live as CSS variables in `:root` at the top of
-  [`css/styles.css`](css/styles.css).
-- **Copy:** edit directly in [`index.html`](index.html) — sections are clearly commented.
-- **Fonts:** Inter (UI/body) + JetBrains Mono (labels/eyebrows) + Fraunces (the "Daftar"
-  brand mark), loaded from Google Fonts in the `<head>`.
+- **Colours & themes:** the palette lives as CSS variables (`--c-paper-*`, `--c-forest-*`,
+  `--c-clay-*`, `--c-ink-*`) in the `<style>` block at the top of `index.html`; each
+  `html[data-theme="…"]` block retargets them.
+- **Copy:** edit directly in `index.html` — sections are clearly commented.
+- **Icons:** inline SVGs; swap any by pasting a different [Lucide](https://lucide.dev)
+  glyph's `<path>` set into the corresponding `<svg>`.
