@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #E7E3DA; }
+  a { color: inherit; text-decoration: none; }
+  h1,h2,h3,h4,p { margin: 0; }
+</style>
+</helmet>
+
+<div style="display:flex; justify-content:center; padding:40px 20px; background:#E7E3DA;">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="{{ devWidth }}" height="{{ devHeight }}" hint-size="390,844">
+
+<div style="--ink:#17181B; --green:#2C3A31; --paper:#F4F1EA; --card:#FFFFFF; --muted:#6E7175; --rule:#D8D2C4; --accent:#BE6A3C; font-family:'Instrument Sans', system-ui, sans-serif; background:var(--paper); color:var(--ink); width:100%;">
+
+  <!-- NAV -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--rule); position:sticky; top:62px; margin-top:62px; background:var(--paper); z-index:10;">
+    <div style="display:flex; align-items:center; gap:9px;">
+      <div style="width:26px; height:26px; background:var(--green); border-radius:6px; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Newsreader',serif; font-weight:600; font-size:16px; color:var(--paper); line-height:1;">C</span></div>
+      <div style="display:flex; flex-direction:column; line-height:1;">
+        <span style="font-family:'Newsreader',serif; font-style:italic; font-weight:600; font-size:18px; color:var(--ink);">Calibre</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:7px; letter-spacing:2px; color:var(--muted); margin-top:2px;">BY DAFTAR</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; width:20px;">
+      <span style="height:1.5px; background:var(--ink);"></span>
+      <span style="height:1.5px; background:var(--ink);"></span>
+      <span style="height:1.5px; background:var(--ink);"></span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="padding:36px 20px 40px;">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Hiring Decision Diagnostic</span>
+    </div>
+    <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; line-height:1.12; letter-spacing:-0.3px; color:var(--ink); text-wrap:balance;">Your hiring decisions are more guesswork than you think.</h1>
+    <p style="font-size:15px; line-height:1.55; color:#3C3E42; margin-top:16px;">Calibre replaces subjective candidate evaluation with structured scorecards, a shared reading method, and team calibration.</p>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-top:22px;">
+      <a href="#cta-m" style="background:var(--ink); color:var(--paper); padding:14px 20px; border-radius:8px; font-size:14px; font-weight:500; text-align:center;">Book a diagnostic call</a>
+      <a href="#method-m" style="font-size:14px; font-weight:500; color:var(--ink); border-bottom:1.5px solid var(--rule); padding-bottom:2px; text-align:center;">See the method →</a>
+    </div>
+    <!-- scorecard visual -->
+    <div style="background:var(--card); border:1px solid var(--rule); border-radius:12px; padding:20px; box-shadow:0 20px 36px -24px rgba(23,24,27,0.3); margin-top:30px;">
+      <div style="display:flex; flex-direction:column; gap:4px; padding-bottom:12px; border-bottom:1px solid var(--rule);">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:1.5px; color:var(--muted);">SCORECARD · SR. PRODUCT MANAGER</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--accent);">CAND. #04</span>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #EDE9DE;">
+          <span style="font-size:13px; color:var(--ink);">Problem framing</span>
+          <div style="display:flex; align-items:center; gap:8px;"><div style="width:60px; height:5px; background:#EDE9DE; border-radius:3px; overflow:hidden;"><div style="width:82%; height:100%; background:var(--ink);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink);">4.1</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #EDE9DE;">
+          <span style="font-size:13px; color:var(--ink);">Execution evidence</span>
+          <div style="display:flex; align-items:center; gap:8px;"><div style="width:60px; height:5px; background:#EDE9DE; border-radius:3px; overflow:hidden;"><div style="width:64%; height:100%; background:var(--ink);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink);">3.2</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #EDE9DE;">
+          <span style="font-size:13px; color:var(--ink);">Stakeholder signal</span>
+          <div style="display:flex; align-items:center; gap:8px;"><div style="width:60px; height:5px; background:#EDE9DE; border-radius:3px; overflow:hidden;"><div style="width:90%; height:100%; background:var(--accent);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink);">4.5</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0 2px;">
+          <span style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; color:var(--ink);">Weighted total</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:17px; font-weight:500; color:var(--ink); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:2px 8px;">3.9</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div style="padding:40px 20px; background:var(--ink); color:var(--paper);">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#A9ABAE;">The problem</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.16; letter-spacing:-0.2px;">Same candidate. Four reviewers. Four verdicts.</h2>
+    <p style="font-size:14px; line-height:1.6; color:#C9CBC7; margin-top:14px;">Most hiring runs on gut feel dressed up as judgment. The score drifts with the reviewer — not the candidate.</p>
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:20px; margin-top:22px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:1.5px; color:#A9ABAE;">CANDIDATE #04 · UNCALIBRATED</span>
+      <div style="display:flex; flex-direction:column; gap:13px; margin-top:16px;">
+        <div style="display:flex; align-items:center; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9CBC7; width:48px;">REV. A</span><div style="flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;"><div style="width:85%; height:100%; background:var(--paper);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; width:24px; text-align:right;">8.5</span></div>
+        <div style="display:flex; align-items:center; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9CBC7; width:48px;">REV. B</span><div style="flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;"><div style="width:50%; height:100%; background:var(--accent);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; width:24px; text-align:right;">5.0</span></div>
+        <div style="display:flex; align-items:center; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9CBC7; width:48px;">REV. C</span><div style="flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;"><div style="width:75%; height:100%; background:var(--paper);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; width:24px; text-align:right;">7.5</span></div>
+        <div style="display:flex; align-items:center; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9CBC7; width:48px;">REV. D</span><div style="flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;"><div style="width:30%; height:100%; background:var(--accent);"></div></div><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; width:24px; text-align:right;">3.0</span></div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.14);">
+        <span style="font-family:'Newsreader',serif; font-style:italic; font-size:13px; color:#C9CBC7;">Spread</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent);">5.5 points</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- METHOD -->
+  <div id="method-m" style="padding:44px 20px;">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">The Calibre method</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; color:var(--ink); letter-spacing:-0.2px; margin-bottom:22px;">Four steps from opinion to evidence.</h2>
+    <div style="display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:12px; overflow:hidden;">
+      <div style="background:var(--paper); padding:22px 20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">01</span><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:21px; color:var(--ink); margin:8px 0 6px;">Read</h3><p style="font-size:13px; line-height:1.55; color:#4A4C50;">A role-specific reading guide tells every reviewer exactly what signal to look for.</p></div>
+      <div style="background:var(--paper); padding:22px 20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">02</span><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:21px; color:var(--ink); margin:8px 0 6px;">Score</h3><p style="font-size:13px; line-height:1.55; color:#4A4C50;">Structured scorecards convert judgment into comparable, defensible evidence.</p></div>
+      <div style="background:var(--paper); padding:22px 20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">03</span><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:21px; color:var(--ink); margin:8px 0 6px;">Compare</h3><p style="font-size:13px; line-height:1.55; color:#4A4C50;">Scores line up side by side, so disagreement surfaces immediately.</p></div>
+      <div style="background:var(--paper); padding:22px 20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">04</span><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:21px; color:var(--ink); margin:8px 0 6px;">Calibrate</h3><p style="font-size:13px; line-height:1.55; color:#4A4C50;">A facilitated session resolves the gaps into one decision.</p></div>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <div style="padding:44px 20px; background:#EFEBE1; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">What you receive</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; color:var(--ink); letter-spacing:-0.2px; margin-bottom:22px;">A working kit, not a slide deck.</h2>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">01</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Role-specific scorecard</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">Weighted criteria built for the role you're actually hiring.</p></div>
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">02</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Candidate-reading guide</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">What strong, average, and weak answers actually look like.</p></div>
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">03</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Interview question bank</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">Questions mapped to each criterion, with follow-ups.</p></div>
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">04</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Calibration session</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">A facilitated session where the panel reconciles scores.</p></div>
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">05</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Hiring-risk notes</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">Where evidence is thin and what to probe before an offer.</p></div>
+      <div style="background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">06</span><h4 style="font-family:'Newsreader',serif; font-size:18px; font-weight:500; color:var(--ink); margin:8px 0 6px;">Executive findings memo</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">A one-page, decision-ready summary for the file.</p></div>
+    </div>
+  </div>
+
+  <!-- WHO -->
+  <div style="padding:44px 20px;">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Who it's for</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:25px; color:var(--ink); letter-spacing:-0.2px; line-height:1.2; margin-bottom:20px;">For anyone who owns a hiring decision they'll have to defend.</h2>
+    <div style="display:flex; flex-direction:column;">
+      <div style="padding:16px 0; border-top:1px solid var(--ink);"><h4 style="font-family:'Newsreader',serif; font-style:italic; font-size:19px; color:var(--ink); margin-bottom:4px;">HR leaders</h4><p style="font-size:13px; color:#4A4C50; line-height:1.5;">A standard the whole org can trust and repeat.</p></div>
+      <div style="padding:16px 0; border-top:1px solid var(--rule);"><h4 style="font-family:'Newsreader',serif; font-style:italic; font-size:19px; color:var(--ink); margin-bottom:4px;">Talent teams</h4><p style="font-size:13px; color:#4A4C50; line-height:1.5;">Faster screening with far less second-guessing.</p></div>
+      <div style="padding:16px 0; border-top:1px solid var(--rule);"><h4 style="font-family:'Newsreader',serif; font-style:italic; font-size:19px; color:var(--ink); margin-bottom:4px;">Hiring managers</h4><p style="font-size:13px; color:#4A4C50; line-height:1.5;">Clarity on what "good" means for the role.</p></div>
+      <div style="padding:16px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);"><h4 style="font-family:'Newsreader',serif; font-style:italic; font-size:19px; color:var(--ink); margin-bottom:4px;">Founders</h4><p style="font-size:13px; color:#4A4C50; line-height:1.5;">High-stakes hires made on evidence, not vibes.</p></div>
+    </div>
+  </div>
+
+  <!-- PILOT -->
+  <div style="padding:44px 20px; background:var(--green); color:var(--paper);">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#B4BEB6;">How the pilot works</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; letter-spacing:-0.2px; line-height:1.15;">Start with one role.</h2>
+    <p style="font-size:14px; line-height:1.6; color:#CFD6CF; margin-top:14px;">Bring one active or recent hire. We run it end-to-end through a short, fixed-scope engagement.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; color:#B4BEB6;"><span>ONE ROLE</span><span>·</span><span>~2–3 WEEKS</span><span>·</span><span>FIXED SCOPE</span></div>
+    <div style="display:flex; flex-direction:column; margin-top:20px;">
+      <div style="display:flex; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.14);"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent); padding-top:2px;">01</span><div><h4 style="font-family:'Newsreader',serif; font-size:17px; margin-bottom:4px;">Scope the role</h4><p style="font-size:13px; color:#CFD6CF; line-height:1.5;">Criteria and weightings defined with your panel.</p></div></div>
+      <div style="display:flex; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.14);"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent); padding-top:2px;">02</span><div><h4 style="font-family:'Newsreader',serif; font-size:17px; margin-bottom:4px;">Structured review</h4><p style="font-size:13px; color:#CFD6CF; line-height:1.5;">Reviewers score independently against the scorecard.</p></div></div>
+      <div style="display:flex; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.14);"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent); padding-top:2px;">03</span><div><h4 style="font-family:'Newsreader',serif; font-size:17px; margin-bottom:4px;">Calibrate</h4><p style="font-size:13px; color:#CFD6CF; line-height:1.5;">Four opinions become one defensible decision.</p></div></div>
+      <div style="display:flex; gap:14px; padding:16px 0;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent); padding-top:2px;">04</span><div><h4 style="font-family:'Newsreader',serif; font-size:17px; margin-bottom:4px;">Findings memo</h4><p style="font-size:13px; color:#CFD6CF; line-height:1.5;">You keep the full kit and a decision-ready summary.</p></div></div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div style="padding:36px 20px; display:grid; grid-template-columns:1fr 1fr; gap:22px; border-bottom:1px solid var(--rule);">
+    <div><span style="font-family:'Newsreader',serif; font-style:italic; font-size:13px; color:var(--accent);">Clearer</span><p style="font-size:12px; color:#4A4C50; line-height:1.5; margin-top:6px;">Everyone knows what "good" means before the first interview.</p></div>
+    <div><span style="font-family:'Newsreader',serif; font-style:italic; font-size:13px; color:var(--accent);">Faster</span><p style="font-size:12px; color:#4A4C50; line-height:1.5; margin-top:6px;">Less circular debate; decisions land in days, not weeks.</p></div>
+    <div><span style="font-family:'Newsreader',serif; font-style:italic; font-size:13px; color:var(--accent);">More consistent</span><p style="font-size:12px; color:#4A4C50; line-height:1.5; margin-top:6px;">The same standard across every reviewer and role.</p></div>
+    <div><span style="font-family:'Newsreader',serif; font-style:italic; font-size:13px; color:var(--accent);">More defensible</span><p style="font-size:12px; color:#4A4C50; line-height:1.5; margin-top:6px;">A documented rationale you can stand behind.</p></div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="padding:44px 20px; background:#EFEBE1; border-bottom:1px solid var(--rule);">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <span style="width:24px; height:1.5px; background:var(--accent);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Common questions</span>
+    </div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:25px; color:var(--ink); letter-spacing:-0.2px; margin-bottom:16px;">Before you book the call.</h2>
+    <div style="display:flex; flex-direction:column;">
+      <div style="padding:18px 0; border-top:1px solid var(--rule);"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">01</span><h4 style="font-family:'Newsreader',serif; font-size:17px; font-weight:500; color:var(--ink); margin:6px 0;">Is this software or a service?</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">A service, delivered as a working kit you keep afterwards.</p></div>
+      <div style="padding:18px 0; border-top:1px solid var(--rule);"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">02</span><h4 style="font-family:'Newsreader',serif; font-size:17px; font-weight:500; color:var(--ink); margin:6px 0;">How long does a pilot take?</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">Two to three weeks for a single role, fixed-scope.</p></div>
+      <div style="padding:18px 0; border-top:1px solid var(--rule);"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">03</span><h4 style="font-family:'Newsreader',serif; font-size:17px; font-weight:500; color:var(--ink); margin:6px 0;">Does it replace our interviewers?</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">No — it sharpens them with a shared standard.</p></div>
+      <div style="padding:18px 0; border-top:1px solid var(--rule);"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">04</span><h4 style="font-family:'Newsreader',serif; font-size:17px; font-weight:500; color:var(--ink); margin:6px 0;">What roles does it work for?</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">Any role where the decision matters and the panel disagrees.</p></div>
+      <div style="padding:18px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);">05</span><h4 style="font-family:'Newsreader',serif; font-size:17px; font-weight:500; color:var(--ink); margin:6px 0;">What do we need to bring?</h4><p style="font-size:13px; line-height:1.5; color:#4A4C50;">One active or recent hire and the panel who ran it.</p></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div id="cta-m" style="padding:52px 20px; text-align:center;">
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:29px; color:var(--ink); letter-spacing:-0.3px; text-wrap:balance;">Bring one role to Calibre.</h2>
+    <p style="font-size:14px; color:#4A4C50; line-height:1.55; margin-top:14px;">A short diagnostic call is enough to see whether your process is measuring the candidate — or the reviewer.</p>
+    <a href="#" style="display:inline-block; background:var(--ink); color:var(--paper); padding:15px 26px; border-radius:8px; font-size:14px; font-weight:500; margin-top:22px;">Book a diagnostic call</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:28px 20px; background:var(--ink); color:#A9ABAE; display:flex; flex-direction:column; gap:14px; font-size:12px;">
+    <div style="display:flex; align-items:center; gap:9px;">
+      <span style="font-family:'Newsreader',serif; font-style:italic; font-weight:600; font-size:17px; color:var(--paper);">Calibre</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:2px;">BY DAFTAR</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.5px;"><a href="About Daftar.dc.html">ABOUT DAFTAR</a><a href="#">HELLO@DAFTARADVISORY.COM</a><span>CALIBRE.DAFTARADVISORY.COM</span></div>
+  </div>
+
+</div>
+</x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { devWidth: 390, devHeight: 844 };
+  }
+}
+</script>
+</body>
+</html>
