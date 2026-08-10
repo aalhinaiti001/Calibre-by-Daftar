@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Calibre by Daftar — Interactions
+   Calibre by Daftar Interactions
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Site configuration — change contact details in one place.
+   Site configuration, change contact details in one place.
    -------------------------------------------------------------------------- */
 const runtimeConfig = window.CALIBRE_CONFIG || {};
 const SITE = {
@@ -19,7 +19,7 @@ const SITE = {
 
 function contactHref(kind, value) {
   if (kind === 'email') {
-    return 'mailto:' + value + '?subject=' + encodeURIComponent('Calibre — Hiring Diagnostic Enquiry');
+    return 'mailto:' + value + '?subject=' + encodeURIComponent('Calibre Hiring Diagnostic Enquiry');
   }
   if (kind === 'phone') {
     return 'tel:' + value;
@@ -146,9 +146,9 @@ function contactHref(kind, value) {
    Contact form
 
    Two modes, controlled by SITE.formEndpoint above:
-   1. Formspree (or any POST endpoint) — set formEndpoint to your URL and the
+   1. Formspree (or any POST endpoint), set formEndpoint to your URL and the
       form submits by fetch(), with no page reload and an inline confirmation.
-   2. mailto: fallback (default) — composes a pre-filled email to SITE.email
+   2. mailto: fallback (default), composes a pre-filled email to SITE.email
       using the visitor's own mail client. No backend, no signup required.
    -------------------------------------------------------------------------- */
 (function () {
@@ -184,12 +184,12 @@ function contactHref(kind, value) {
   }
 
   function sendViaMailto(v) {
-    const subject = 'Calibre enquiry — ' + (v.company || v.name);
+    const subject = 'Calibre enquiry: ' + (v.company || v.name);
     const bodyLines = [
       'Name: ' + v.name,
-      'Company: ' + (v.company || '—'),
+      'Company: ' + (v.company || 'n/a'),
       'Email: ' + v.email,
-      'Role to diagnose: ' + (v.role || '—'),
+      'Role to diagnose: ' + (v.role || 'n/a'),
       '',
       'Message:',
       v.message
@@ -211,7 +211,7 @@ function contactHref(kind, value) {
       .then(function (res) {
         if (res.ok) {
           form.reset();
-          setStatus('Thanks — your enquiry is on its way. We reply within one business day.', 'success');
+          setStatus('Thanks, your enquiry is on its way. We reply within one business day.', 'success');
         } else {
           sendViaMailto(v);
         }

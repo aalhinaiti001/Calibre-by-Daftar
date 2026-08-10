@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Calibre by Daftar — Stylesheet
+   Calibre by Daftar Stylesheet
    ========================================================================== */
 
 :root {
@@ -120,7 +120,7 @@ header {
   line-height: 1.1;
 }
 
-/* Parent-brand type treatment — the word "Daftar" */
+/* Parent-brand type treatment, the word "Daftar" */
 .daftar-brand {
   font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
   font-weight: 700;
