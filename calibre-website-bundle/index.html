@@ -40,6 +40,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -119,6 +120,16 @@
       .tw-seg button:hover{border-color:#a8a29e;}
       .tw-seg button.tw-on{background:#265147;color:#fff;border-color:#265147;}
       @media (prefers-reduced-motion: reduce){#tweakToggle,.tw-seg button{transition:none;}}
+      /* ── Polish pass (parity with Daftar): pinned mobile CTA + touch targets ── */
+      .mobile-cta{display:none;}
+      @media (max-width:767px){
+        .mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:55;display:block;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(250,248,245,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(28,25,23,.10);}
+        .mobile-cta a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:8px;background:#265147;color:#fff;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+        body{padding-bottom:76px;}
+        #menuToggle{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+        header a[href="#contact"]{min-height:44px;display:inline-flex;align-items:center;}
+        #mobileMenu a{min-height:48px;display:flex;align-items:center;}
+      }
     </style>
 </head>
 <body class="bg-paper-100 text-ink-950 font-sans antialiased selection:bg-forest-600 selection:text-white">
@@ -177,7 +188,7 @@
                         <span class="italic text-forest-600 font-medium">more guesswork than you think.</span>
                     </h1>
                     <p class="text-stone-600 text-base sm:text-lg leading-relaxed font-serif font-light max-w-xl" data-reveal style="--reveal-delay:160ms">
-                        Calibre finds where candidate evaluation breaks down, then installs a practical scorecard, reading method, and calibration system, on one priority role.
+                        Calibre finds where candidate evaluation breaks down, then installs a practical scorecard, reading method, and calibration system, starting with one priority role.
                     </p>
 
                     <div class="pt-4 flex flex-wrap gap-4 items-center" data-reveal style="--reveal-delay:240ms">
@@ -192,7 +203,7 @@
                     <div class="grid grid-cols-3 gap-8 pt-6 border-t border-stone-200 max-w-md" data-reveal style="--reveal-delay:320ms">
                         <div>
                             <span class="block text-xl font-serif font-bold text-forest-600">Δ 41 pts</span>
-                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Typical reader gap</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Illustrative gap</span>
                         </div>
                         <div>
                             <span class="block text-xl font-serif font-bold text-forest-600">1 role</span>
@@ -274,7 +285,7 @@
                             <span class="w-6 h-6 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">1</span>
                             <div>
                                 <h3 class="text-sm font-bold text-ink-950">Read</h3>
-                                <p class="text-xs text-stone-600 mt-1">Standardize how CVs and profiles are interpreted.</p>
+                                <p class="text-xs text-stone-600 mt-1">Read every CV and profile the same way.</p>
                             </div>
                         </div>
                         <div class="flex gap-4 items-start">
@@ -358,7 +369,7 @@
                     Concrete outputs, not a framework on a slide.
                 </h2>
                 <p class="text-stone-500 text-sm sm:text-base font-serif">
-                    A short, fixed-fee engagement that leaves your team with tools they use on the next hire, plus a recommendation on whether to extend the method beyond one role.
+                    A short, fixed fee engagement that leaves your team with tools they use on the next hire, plus a recommendation on whether to extend the method beyond one role.
                 </p>
             </div>
 
@@ -366,7 +377,7 @@
                 <div class="bg-paper-100 border border-stone-200 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
                     <div class="space-y-4">
                         <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">I.</span>
-                        <h3 class="text-lg font-bold text-ink-950">Role specific scorecard</h3>
+                        <h3 class="text-lg font-bold text-ink-950">Role scorecard</h3>
                         <p class="text-xs text-stone-600 leading-relaxed font-serif">What "good" means for this role, written down, the standard every reviewer scores against.</p>
                     </div>
                     <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Weighted • Defensible</span>
@@ -406,7 +417,7 @@
                 <div class="bg-forest-50 border border-forest-600/10 p-8 rounded-lg space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
                     <div class="space-y-4">
                         <span class="font-serif italic text-3xl text-forest-600/40 font-bold" aria-hidden="true">VI.</span>
-                        <h3 class="text-lg font-bold text-forest-600">One page findings memo</h3>
+                        <h3 class="text-lg font-bold text-forest-600">Findings memo</h3>
                         <p class="text-xs text-forest-900/80 leading-relaxed font-serif">A defensible record of what changed and why, plus a clear recommendation on whether to scale the method.</p>
                     </div>
                     <a href="#pilot" class="text-[11px] uppercase tracking-wider font-bold text-clay-600 hover:text-clay-500 transition-colors flex items-center gap-1">
@@ -636,5 +647,6 @@
             }
         })();
     </script>
+    <div class="mobile-cta"><a href="#contact">Scope a Call</a></div>
 </body>
 </html>
