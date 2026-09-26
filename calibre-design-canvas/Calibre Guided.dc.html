@@ -8,16 +8,16 @@
 <body>
 <x-dc>
 <helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><style>html,body{margin:0;height:100%;background:#fff;color:#0E1113;font-family:'Plus Jakarta Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:#1C3D35;text-underline-offset:3px}a:hover{color:#265147}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #265147;outline-offset:3px}.hero,.split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}.split{gap:clamp(32px,5vw,80px);align-items:center}.doc-row{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1.7fr);gap:6px 20px;align-items:baseline}@media(max-width:900px){.hero,.split{grid-template-columns:minmax(0,1fr)}.doc-row{grid-template-columns:36px minmax(0,1fr)}.doc-row>:nth-child(3){grid-column:2}}@keyframes roomIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style></helmet>
-<div style="height:100vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:#fff">
+<div style="height:100vh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;background:#fff">
 
 <header style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,3vw,40px);height:68px;border-bottom:1px solid #D5E3DE">
-<button onClick="{{ goHome }}" aria-label="Calibre by Daftar, home" style="display:flex;align-items:center;gap:11px;text-align:left"><span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:#265147;color:#fff;font:600 20px/1 Lora,Georgia,serif">C</span><span><span style="display:block;font:italic 20px/1 Lora,Georgia,serif;color:#0E211B">Calibre</span><span style="display:block;font-size:10px;letter-spacing:.07em;color:#596B66;margin-top:3px">by Daftar</span></span></button>
-<nav aria-label="Rooms" style="display:flex;gap:clamp(12px,2.2vw,28px);align-items:center;overflow-x:auto">
+<button onClick="{{ goHome }}" aria-label="Calibre by Daftar, home" style="flex-shrink:0;display:flex;align-items:center;gap:11px;text-align:left"><span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:#265147;color:#fff;font:600 20px/1 Lora,Georgia,serif">C</span><span><span style="display:block;font:italic 20px/1 Lora,Georgia,serif;color:#0E211B">Calibre</span><span style="display:block;font-size:10px;letter-spacing:.07em;color:#596B66;margin-top:3px">by Daftar</span></span></button>
+<nav aria-label="Rooms" style="flex:1 1 auto;min-width:0;justify-content:safe center;display:flex;gap:clamp(12px,2.2vw,28px);align-items:center;overflow-x:auto">
 <sc-for list="{{ nav }}" as="item" hint-placeholder-count="5">
 <button onClick="{{ item.go }}" title="{{ item.name }}" style="display:flex;gap:7px;align-items:baseline;padding:24px 0 21px;border-bottom:2px solid {{ item.bar }};color:{{ item.color }};white-space:nowrap;font-size:13px;font-weight:600"><span style="font:italic 14px Lora,Georgia,serif;color:{{ item.numColor }}">{{ item.num }}</span><sc-if value="{{ showNames }}" hint-placeholder-val="{{ true }}"><span>{{ item.name }}</span></sc-if></button>
 </sc-for>
 </nav>
-<div style="display:flex;align-items:center;gap:20px">
+<div style="flex-shrink:0;display:flex;align-items:center;gap:20px">
 <a href="https://daftaradvisory.com/ar/calibre" lang="ar" style="font-size:14px;font-weight:600;color:#536269;text-decoration:none">العربية</a>
 <button onClick="{{ goContact }}" style="font-size:13px;font-weight:600;color:#0E211B;padding:10px 0;white-space:nowrap" style-hover="color:#265147">Discuss a role</button>
 </div>
