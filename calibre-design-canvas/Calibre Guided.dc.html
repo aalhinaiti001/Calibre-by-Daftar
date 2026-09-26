@@ -7,198 +7,172 @@
 </head>
 <body>
 <x-dc>
-<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><style>html,body{margin:0;height:100%;background:#fff;color:#0E1113;font-family:'Plus Jakarta Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:#1C3D35;text-underline-offset:3px}a:hover{color:#265147}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #265147;outline-offset:3px}@keyframes roomIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style></helmet>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><style>html,body{margin:0;height:100%;background:#fff;color:#0E1113;font-family:'Plus Jakarta Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:#1C3D35;text-underline-offset:3px}a:hover{color:#265147}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #265147;outline-offset:3px}.hero,.split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}.split{gap:clamp(32px,5vw,80px);align-items:center}.doc-row{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1.7fr);gap:6px 20px;align-items:baseline}@media(max-width:900px){.hero,.split{grid-template-columns:minmax(0,1fr)}.doc-row{grid-template-columns:36px minmax(0,1fr)}.doc-row>:nth-child(3){grid-column:2}}@keyframes roomIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style></helmet>
 <div style="height:100vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:#fff">
 
 <header style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,3vw,40px);height:68px;border-bottom:1px solid #D5E3DE">
-<button onClick="{{ goHome }}" aria-label="Calibre by Daftar, home" style="display:flex;align-items:center;gap:11px;text-align:left"><span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:#265147;color:#fff;font:600 20px/1 Lora,Georgia,serif">C</span><span><span style="display:block;font:italic 20px/1 Lora,Georgia,serif;color:#0E211B">Calibre</span><span style="display:block;font-size:10px;letter-spacing:.07em;color:#596B66;margin-top:3px">by Daftar</span></span></button>
+<button onClick="{{ goHome }}" aria-label="Calibre by Daftar, home" style="display:flex;align-items:center;gap:11px;text-align:left"><span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:#265147;color:#fff;font:600 20px/1 Lora,Georgia,serif">C</span><span><span style="display:block;font:italic 20px/1 Lora,Georgia,serif;color:#0E211B">Calibre</span><span style="display:block;font-size:10px;letter-spacing:.07em;color:#596B66;margin-top:3px">by Daftar</span></span></button>
 <nav aria-label="Rooms" style="display:flex;gap:clamp(12px,2.2vw,28px);align-items:center;overflow-x:auto">
 <sc-for list="{{ nav }}" as="item" hint-placeholder-count="5">
 <button onClick="{{ item.go }}" title="{{ item.name }}" style="display:flex;gap:7px;align-items:baseline;padding:24px 0 21px;border-bottom:2px solid {{ item.bar }};color:{{ item.color }};white-space:nowrap;font-size:13px;font-weight:600"><span style="font:italic 14px Lora,Georgia,serif;color:{{ item.numColor }}">{{ item.num }}</span><sc-if value="{{ showNames }}" hint-placeholder-val="{{ true }}"><span>{{ item.name }}</span></sc-if></button>
 </sc-for>
 </nav>
-<div style="display:flex;align-items:center;gap:16px">
+<div style="display:flex;align-items:center;gap:20px">
 <a href="https://daftaradvisory.com/ar/calibre" lang="ar" style="font-size:14px;font-weight:600;color:#536269;text-decoration:none">العربية</a>
-<button onClick="{{ goContact }}" style="font-size:13px;font-weight:600;background:#265147;color:#fff;padding:10px 16px;border-radius:8px;white-space:nowrap" style-hover="background:#1C3D35">Discuss a role</button>
+<button onClick="{{ goContact }}" style="font-size:13px;font-weight:600;color:#0E211B;padding:10px 0;white-space:nowrap" style-hover="color:#265147">Discuss a role</button>
 </div>
 </header>
 
 <main style="overflow:auto">
 
 <sc-if value="{{ is.landing }}" hint-placeholder-val="{{ true }}">
-<section data-screen-label="Landing" style="min-height:100%;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));animation:roomIn .45s ease both">
+<section data-screen-label="Landing" class="hero" style="min-height:100%;box-sizing:border-box;animation:roomIn .45s ease both">
 <div style="background:#0E211B;color:#fff;padding:clamp(32px,7vh,84px) clamp(24px,5vw,72px);display:flex;flex-direction:column;justify-content:center">
 <div style="font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#A8C9B8">Calibre Verdict</div>
 <h1 style="margin:16px 0 0;font:500 clamp(40px,5vw,68px)/1.08 Lora,Georgia,serif;letter-spacing:-.035em;max-width:14ch;text-wrap:balance">Make a finance hiring decision you can <em style="font-weight:400">explain.</em></h1>
 <p style="margin:24px 0 0;font:400 clamp(17px,1.35vw,19px)/1.65 Lora,Georgia,serif;color:#D7E6DE;max-width:44ch;text-wrap:pretty">A role standard, an evidence-led review of your finalist shortlist, and one human-written memo. You make the decision.</p>
-<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px">
-<button onClick="{{ goMethod }}" style="font-size:14px;font-weight:600;background:#fff;color:#0E211B;padding:14px 20px;border-radius:8px" style-hover="background:#F0F5F3">Walk through the five rooms →</button>
-<button onClick="{{ goFaq }}" style="font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.35);color:#fff;padding:13px 20px;border-radius:8px" style-hover="border-color:#fff">Read the FAQ first</button>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:36px">
+<button onClick="{{ goMethod }}" style="font-size:14px;font-weight:600;background:#fff;color:#0E211B;padding:14px 20px;border-radius:6px" style-hover="background:#F0F5F3">Walk through the five rooms →</button>
+<button onClick="{{ goFaq }}" style="font-size:14px;font-weight:600;color:#D7E6DE;text-decoration:underline;text-underline-offset:4px" style-hover="color:#fff">Read the FAQ first</button>
 </div>
-<div style="margin-top:auto;padding-top:40px;display:grid;gap:4px;border-top:1px solid rgba(255,255,255,.18);max-width:52ch"><span style="font-size:12px;font-weight:600;color:#fff;margin-top:18px">Finance roles only</span><span style="font-size:13px;line-height:1.55;color:#C7DACF">Controllers, FP&amp;A leads, heads of finance, CFOs. You bring the shortlist. We do not source candidates.</span></div>
+<p style="margin:auto 0 0;padding-top:48px;font-size:13px;line-height:1.6;color:#C7DACF;max-width:52ch"><b style="color:#fff;font-weight:600">Finance roles only.</b> Controllers, FP&amp;A leads, heads of finance, CFOs. You bring the shortlist. We do not source candidates.</p>
 </div>
-<div style="background:#F6F7F8;padding:clamp(32px,7vh,84px) clamp(24px,5vw,72px);display:flex;align-items:center;justify-content:center">
-<div style="width:100%;max-width:500px;background:#fff;border:1px solid #D5E3DE;border-radius:12px;overflow:hidden">
-<div style="display:flex;justify-content:space-between;align-items:baseline;padding:18px 22px;border-bottom:1px solid #D5E3DE"><span style="font:500 18px Lora,Georgia,serif;color:#0E211B">Same finalist, two readers</span><span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#536269">Illustrative</span></div>
-<div style="display:grid;grid-template-columns:1fr 1fr">
-<div style="padding:24px 22px;border-right:1px solid #D5E3DE"><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#596B66">Reader A</div><p style="margin:12px 0 0;font:italic 17px/1.5 Lora,Georgia,serif;color:#0E211B">"Owned the close. Strong."</p><div style="font-size:12px;color:#596B66;margin-top:14px">Criteria: none written</div></div>
-<div style="padding:24px 22px"><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#596B66">Reader B</div><p style="margin:12px 0 0;font:italic 17px/1.5 Lora,Georgia,serif;color:#0E211B">"Prepared recs. Didn't sign off."</p><div style="font-size:12px;color:#596B66;margin-top:14px">Criteria: none written</div></div>
+<div style="padding:clamp(32px,7vh,84px) clamp(24px,4vw,64px);display:flex;align-items:center">
+<figure style="margin:0;width:100%;max-width:440px">
+<figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:500 19px Lora,Georgia,serif;color:#0E211B">Same finalist, two readers</span><span style="font-size:12px;color:#596B66">Illustrative</span></figcaption>
+<div style="display:grid;grid-template-columns:1fr 1fr;margin-top:16px;border-top:1px solid #D5E3DE;border-bottom:1px solid #D5E3DE">
+<div style="padding:22px 20px 22px 0;border-right:1px solid #D5E3DE"><div style="font-size:12px;font-weight:600;color:#596B66">Reader A</div><p style="margin:10px 0 0;font:italic 17px/1.5 Lora,Georgia,serif;color:#0E211B">"Owned the close. Strong."</p></div>
+<div style="padding:22px 0 22px 20px"><div style="font-size:12px;font-weight:600;color:#596B66">Reader B</div><p style="margin:10px 0 0;font:italic 17px/1.5 Lora,Georgia,serif;color:#0E211B">"Prepared recs. Didn't sign off."</p></div>
 </div>
-<div style="padding:16px 22px;border-top:1px solid #D5E3DE;background:#F0F5F3;display:grid;gap:4px"><span style="font-size:12px;font-weight:700;color:#1C3D35">What Calibre adds</span><span style="font-size:14px;line-height:1.55;color:#394740">A written role standard both readers agree before reading, so the disagreement becomes something you can see and resolve.</span></div>
-</div>
+<p style="margin:8px 0 0;font-size:12px;color:#596B66">Neither reader had written criteria.</p>
+<p style="margin:28px 0 0;font-size:15px;line-height:1.6;color:#394740"><b style="color:#1C3D35">What Calibre adds:</b> a written role standard both readers agree before reading, so the disagreement becomes something you can see and resolve.</p>
+</figure>
 </div>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.method }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="01 Method" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:center;animation:roomIn .45s ease both">
+<section data-screen-label="01 Method" class="split" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);animation:roomIn .45s ease both">
 <div>
-<div style="display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#265147"><span style="width:30px;border-top:3px solid #265147"></span>Room I · Method</div>
-<h2 style="margin:16px 0 0;font:500 clamp(32px,3.6vw,48px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;text-wrap:balance">Four steps from opinion to a written standard.</h2>
+<h2 style="margin:0;font:500 clamp(32px,3.4vw,46px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;max-width:18ch;text-wrap:balance">Four steps from opinion to a written standard.</h2>
 <p style="margin:16px 0 0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:46ch;text-wrap:pretty">Each step leaves a record, so the reasoning behind the recommendation can be checked later.</p>
-<div style="display:grid;margin-top:28px;border-top:1px solid #D5E3DE">
+<div style="display:grid;margin-top:32px;border-top:1px solid #D5E3DE">
 <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-<button onClick="{{ s.pick }}" aria-pressed="{{ s.pressed }}" style="display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:baseline;text-align:left;padding:16px 12px 16px 0;border-bottom:1px solid #D5E3DE;background:{{ s.bg }};border-radius:0;transition:background .25s ease">
+<button onClick="{{ s.pick }}" aria-pressed="{{ s.pressed }}" style="display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:baseline;text-align:left;padding:16px 12px 16px 0;border-bottom:1px solid #D5E3DE;background:{{ s.bg }};transition:background .25s ease">
 <span style="font:italic 22px Lora,Georgia,serif;color:{{ s.numColor }};padding-left:10px">{{ s.n }}</span>
 <span><span style="display:block;font-size:16px;font-weight:700;color:{{ s.titleColor }}">{{ s.title }}</span><span style="display:block;font-size:14px;line-height:1.55;color:#596B66;margin-top:3px">{{ s.body }}</span></span>
 </button>
 </sc-for>
 </div>
 </div>
-<div style="background:#fff;border:1px solid #D5E3DE;border-radius:12px;overflow:hidden">
-<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;border-bottom:2px solid #265147"><span style="font:500 18px Lora,Georgia,serif;color:#0E211B">Role standard · Financial Controller</span><span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#536269">Illustrative</span></div>
+<div style="border:1px solid #D5E3DE;border-radius:4px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;border-bottom:2px solid #265147"><span style="font:500 18px Lora,Georgia,serif;color:#0E211B">Role standard · Financial Controller</span><span style="font-size:12px;color:#596B66">Illustrative</span></div>
 <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);font-size:14px">
-<span style="padding:12px 22px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1C3D35;border-bottom:1px solid #D5E3DE">Criterion</span><span style="padding:12px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1C3D35;border-bottom:1px solid #D5E3DE">Reader A</span><span style="padding:12px 22px 12px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1C3D35;border-bottom:1px solid #D5E3DE">Reader B</span>
+<span style="padding:12px 22px;font-size:12px;font-weight:600;color:#596B66;border-bottom:1px solid #D5E3DE">Criterion</span><span style="padding:12px 10px;font-size:12px;font-weight:600;color:#596B66;border-bottom:1px solid #D5E3DE">Reader A</span><span style="padding:12px 22px 12px 10px;font-size:12px;font-weight:600;color:#596B66;border-bottom:1px solid #D5E3DE">Reader B</span>
 <sc-for list="{{ criteria }}" as="c" hint-placeholder-count="4">
 <span style="padding:13px 22px;border-bottom:1px solid #D5E3DE;color:#0E1113;font-weight:600">{{ c.name }}</span>
 <span style="padding:13px 10px;border-bottom:1px solid #D5E3DE;color:{{ c.aInk }}">{{ c.a }}</span>
-<span style="padding:13px 22px 13px 10px;border-bottom:1px solid #D5E3DE;color:{{ c.bInk }};background:{{ c.bBg }}">{{ c.b }}</span>
+<span style="padding:13px 22px 13px 10px;border-bottom:1px solid #D5E3DE;color:{{ c.bInk }};background:{{ c.bBg }};font-weight:{{ c.bWeight }}">{{ c.b }}</span>
 </sc-for>
 </div>
-<div style="padding:16px 22px;background:{{ noteBg }};color:{{ noteInk }};transition:background .35s ease;display:grid;gap:3px">
-<span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.8">Step {{ stepNum }} · {{ stepName }}</span><span style="font:400 16px/1.5 Lora,Georgia,serif">{{ stepNote }}</span>
+<div style="padding:18px 22px 20px;display:grid;gap:4px">
+<span style="font-size:12px;font-weight:600;color:#265147">Step {{ stepNum }} · {{ stepName }}</span><span style="font:400 16px/1.5 Lora,Georgia,serif;color:#0E211B">{{ stepNote }}</span>
 </div>
 </div>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.outputs }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="02 Deliverables" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:center;animation:roomIn .45s ease both">
-<div>
-<div style="display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#265147"><span style="width:30px;border-top:3px solid #265147"></span>Room II · Deliverables</div>
-<h2 style="margin:16px 0 0;font:500 clamp(32px,3.6vw,48px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B">The record you keep.</h2>
-<p style="margin:16px 0 0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:44ch;text-wrap:pretty">One memo, and the working documents that show how it was reached.</p>
-<div style="display:grid;margin-top:28px;border-top:1px solid #D5E3DE">
-<sc-for list="{{ outputs }}" as="o" hint-placeholder-count="5">
-<button onClick="{{ o.pick }}" aria-pressed="{{ o.pressed }}" style="display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:baseline;text-align:left;padding:14px 12px 14px 0;border-bottom:1px solid #D5E3DE;background:{{ o.bg }};transition:background .25s ease">
-<span style="font:italic 18px Lora,Georgia,serif;color:{{ o.numColor }};padding-left:10px">{{ o.num }}</span><span style="font-size:16px;font-weight:{{ o.weight }};color:{{ o.color }}">{{ o.title }}</span><span style="font-size:14px;color:#265147">{{ o.mark }}</span>
-</button>
+<section data-screen-label="02 Deliverables" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;align-content:center;animation:roomIn .45s ease both">
+<h2 style="margin:0;font:500 clamp(32px,3.4vw,46px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B">The record you keep.</h2>
+<p style="margin:14px 0 0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:44ch;text-wrap:pretty">One memo, and the working documents that show how it was reached.</p>
+<div style="margin-top:40px;border-top:1px solid #D5E3DE">
+<sc-for list="{{ docs }}" as="d" hint-placeholder-count="4">
+<div class="doc-row" style="padding:15px 0;border-bottom:1px solid #D5E3DE"><span style="font:italic 17px Lora,Georgia,serif;color:#596B66">{{ d.num }}</span><span style="font-size:15px;font-weight:600;color:#0E211B">{{ d.title }}</span><span style="font-size:14px;line-height:1.6;color:#394740">{{ d.body }}</span></div>
 </sc-for>
 </div>
-</div>
-<div style="background:#F6F7F8;border-radius:12px;padding:clamp(20px,3vw,36px)">
-<div style="background:#fff;border:1px solid #D5E3DE;border-radius:10px;min-height:400px;padding:28px 30px;box-sizing:border-box;display:flex;flex-direction:column">
-<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="display:flex;align-items:center;gap:8px"><span aria-hidden="true" style="display:grid;place-items:center;width:22px;height:22px;border-radius:5px;background:#265147;color:#fff;font:600 12px/1 Lora,Georgia,serif">C</span><span style="font:italic 14px Lora,Georgia,serif;color:#0E211B">Calibre</span></span><span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#536269">{{ outNum }} of V</span></div>
-<div style="font:500 clamp(24px,2.4vw,32px)/1.2 Lora,Georgia,serif;color:#0E211B;margin-top:36px;letter-spacing:-.015em">{{ outTitle }}</div>
-<div style="width:30px;border-top:3px solid #265147;margin-top:18px"></div>
-<p style="margin:20px 0 0;font:400 17px/1.65 Lora,Georgia,serif;color:#394740;max-width:40ch;text-wrap:pretty">{{ outBody }}</p>
-<div style="margin-top:auto;padding-top:24px;border-top:1px solid #D5E3DE;font-size:12px;color:#596B66">A product of Daftar Advisory · Amman</div>
-</div>
-</div>
+<div class="doc-row" style="margin-top:36px"><span style="font:italic 24px Lora,Georgia,serif;color:#265147">v</span><span style="font:500 clamp(24px,2.4vw,30px)/1.2 Lora,Georgia,serif;color:#0E211B;letter-spacing:-.015em">{{ memoTitle }}</span><span style="font:400 18px/1.6 Lora,Georgia,serif;color:#394740;max-width:40ch">{{ memoBody }}</span></div>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.who }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="03 Who it's for" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;align-content:center;gap:clamp(28px,4vw,44px);animation:roomIn .45s ease both">
+<section data-screen-label="03 Who it's for" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;align-content:center;gap:clamp(36px,6vh,64px);animation:roomIn .45s ease both">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
-<div><div style="display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#265147"><span style="width:30px;border-top:3px solid #265147"></span>Room III · Who it's for</div>
-<h2 style="margin:16px 0 0;font:500 clamp(32px,3.6vw,48px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;text-wrap:balance">For whoever has to explain the finance appointment.</h2></div>
-<p style="margin:0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:42ch;text-wrap:pretty">Pick your seat. The question you face changes. The method doesn't.</p>
+<h2 style="margin:0;font:500 clamp(32px,3.4vw,46px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;text-wrap:balance">For whoever has to explain the finance appointment.</h2>
+<p style="margin:0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:40ch;text-wrap:pretty">The question you face changes with your seat. The method doesn't.</p>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,3vw,48px)">
 <sc-for list="{{ audiences }}" as="a" hint-placeholder-count="3">
-<button onClick="{{ a.pick }}" aria-pressed="{{ a.pressed }}" style="text-align:left;padding:24px;border:1px solid {{ a.border }};border-radius:12px;display:flex;flex-direction:column;gap:12px;min-height:230px;background:{{ a.bg }};color:{{ a.ink }};transition:background .3s ease,border-color .3s ease">
-<span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:{{ a.kicker }}">{{ a.title }}</span>
-<span style="font:500 clamp(20px,1.8vw,24px)/1.3 Lora,Georgia,serif">{{ a.q }}</span>
-<span style="font-size:14px;line-height:1.6;margin-top:auto;color:{{ a.bodyInk }};text-wrap:pretty">{{ a.body }}</span>
-</button>
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:700;color:#265147">{{ a.title }}</span>
+<span style="font:500 clamp(20px,1.7vw,23px)/1.35 Lora,Georgia,serif;color:#0E211B;text-wrap:pretty">{{ a.q }}</span>
+<span style="font-size:14px;line-height:1.6;color:#394740;margin-top:4px;text-wrap:pretty">{{ a.body }}</span>
+</div>
 </sc-for>
 </div>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.pilot }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="04 How it runs" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:center;animation:roomIn .45s ease both">
+<section data-screen-label="04 How it runs" class="split" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);animation:roomIn .45s ease both">
 <div>
-<div style="display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#265147"><span style="width:30px;border-top:3px solid #265147"></span>Room IV · How it runs</div>
-<h2 style="margin:16px 0 0;font:500 clamp(32px,3.6vw,48px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;text-wrap:balance">One role. One shortlist. One memo.</h2>
+<h2 style="margin:0;font:500 clamp(32px,3.4vw,46px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B;text-wrap:balance">One role. One shortlist. One memo.</h2>
 <p style="margin:16px 0 0;font:400 18px/1.65 Lora,Georgia,serif;color:#394740;max-width:44ch;text-wrap:pretty">A first engagement is scoped to a single finance role, usually through your existing Daftar relationship.</p>
-<div style="display:grid;margin-top:28px">
+<ol style="list-style:none;margin:28px 0 0;padding:0;display:grid;gap:18px">
 <sc-for list="{{ phases }}" as="p" hint-placeholder-count="4">
-<div style="display:flex;gap:18px;border-top:1px solid #D5E3DE;padding:16px 0"><span style="font:italic 22px Lora,Georgia,serif;color:#265147;min-width:30px">{{ p.n }}</span><div><div style="font-size:15px;font-weight:700;color:#1C3D35">{{ p.title }}</div><div style="font-size:14px;line-height:1.6;color:#394740;margin-top:3px">{{ p.body }}</div></div></div>
+<li style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:baseline"><span style="font:italic 20px Lora,Georgia,serif;color:#265147">{{ p.n }}</span><span><span style="font-size:15px;font-weight:700;color:#0E211B">{{ p.title }}.</span> <span style="font-size:15px;line-height:1.6;color:#394740">{{ p.body }}</span></span></li>
 </sc-for>
+</ol>
 </div>
-</div>
-<div style="background:#0E211B;color:#fff;border-radius:12px;padding:clamp(24px,3vw,36px)">
-<div style="font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#A8C9B8">Agreed at scoping</div>
-<div style="display:grid;margin-top:14px">
+<div>
+<div style="font-size:13px;font-weight:700;color:#0E211B;padding-bottom:12px;border-bottom:2px solid #265147">Agreed at scoping</div>
+<dl style="margin:0;display:grid">
 <sc-for list="{{ terms }}" as="t" hint-placeholder-count="4">
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font:400 17px Lora,Georgia,serif">{{ t.k }}</span><span style="font-size:13px;color:#C7DACF;text-align:right">{{ t.v }}</span></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid #D5E3DE"><dt style="font:400 17px Lora,Georgia,serif;color:#0E211B">{{ t.k }}</dt><dd style="margin:0;font-size:13px;color:#394740;text-align:right">{{ t.v }}</dd></div>
 </sc-for>
-</div>
-<p style="margin:18px 0 0;font-size:13px;line-height:1.6;color:#C7DACF">Terms are set in writing before any candidate material is shared.</p>
-<button onClick="{{ goContact }}" style="margin-top:22px;font-size:14px;font-weight:600;background:#fff;color:#0E211B;padding:14px 20px;border-radius:8px" style-hover="background:#F0F5F3">Discuss a role →</button>
+</dl>
+<p style="margin:14px 0 0;font-size:13px;line-height:1.6;color:#596B66">Terms are set in writing before any candidate material is shared.</p>
+<button onClick="{{ goContact }}" style="margin-top:28px;font-size:14px;font-weight:600;background:#265147;color:#fff;padding:14px 20px;border-radius:6px" style-hover="background:#1C3D35">Discuss a role →</button>
 </div>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.faq }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="05 FAQ" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px);align-items:center;animation:roomIn .45s ease both">
-<div>
-<div style="display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#265147"><span style="width:30px;border-top:3px solid #265147"></span>Room V · Questions</div>
-<h2 style="margin:16px 0 0;font:500 clamp(32px,3.6vw,48px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B">What it is, and what it isn't.</h2>
-<div style="margin-top:28px;border-left:4px solid #536269;background:#F6F7F8;border-radius:0 10px 10px 0;padding:18px 22px;max-width:46ch"><div style="font-size:13px;font-weight:700;color:#0E211B;margin-bottom:6px">Use statement</div><p style="margin:0;font-size:14px;line-height:1.65;color:#394740">Structured hiring advisory for finance roles. Not a psychometric assessment. Does not predict performance. The decision, and its consequences, rest with the employer.</p></div>
-</div>
-<div style="border-top:2px solid #265147">
+<section data-screen-label="05 FAQ" style="min-height:100%;box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(28px,6vh,64px) clamp(20px,4vw,56px);display:grid;align-content:center;animation:roomIn .45s ease both">
+<h2 style="margin:0;font:500 clamp(32px,3.4vw,46px)/1.15 Lora,Georgia,serif;letter-spacing:-.025em;color:#0E211B">What it is, and what it isn't.</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px clamp(32px,5vw,72px);margin-top:40px">
 <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
-<div style="border-bottom:1px solid #D5E3DE">
-<button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:20px;text-align:left;padding:20px 0"><span style="font:500 clamp(19px,1.7vw,23px)/1.3 Lora,Georgia,serif;color:#0E211B">{{ f.q }}</span><span style="font-size:18px;font-weight:600;color:#265147">{{ f.sign }}</span></button>
-<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 0 22px;font-size:15px;line-height:1.7;color:#394740;max-width:58ch;text-wrap:pretty;animation:roomIn .3s ease both">{{ f.a }}</p></sc-if>
-</div>
+<div><h3 style="margin:0;font:500 clamp(19px,1.6vw,22px)/1.3 Lora,Georgia,serif;color:#0E211B">{{ f.q }}</h3><p style="margin:10px 0 0;font-size:15px;line-height:1.7;color:#394740;max-width:54ch;text-wrap:pretty">{{ f.a }}</p></div>
 </sc-for>
 </div>
+<p style="margin:48px 0 0;padding-top:18px;border-top:1px solid #D5E3DE;font-size:13px;line-height:1.65;color:#536269;max-width:80ch"><b style="color:#0E211B">Use statement.</b> Structured hiring advisory for finance roles. Not a psychometric assessment. Does not predict performance. The decision, and its consequences, rest with the employer.</p>
 </section>
 </sc-if>
 
 <sc-if value="{{ is.contact }}" hint-placeholder-val="{{ false }}">
 <section data-screen-label="Contact" style="min-height:100%;box-sizing:border-box;display:grid;align-content:center;background:#0E211B;color:#fff;padding:clamp(28px,6vh,64px) clamp(20px,5vw,72px);animation:roomIn .45s ease both">
-<div style="max-width:1100px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:end">
+<div class="split" style="max-width:1100px;width:100%;margin:0 auto;align-items:end">
 <div>
-<div style="font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#A8C9B8">Next step</div>
-<h2 style="margin:16px 0 0;font:500 clamp(36px,4.6vw,60px)/1.1 Lora,Georgia,serif;letter-spacing:-.03em;text-wrap:balance">Bring one finance role to the conversation.</h2>
+<h2 style="margin:0;font:500 clamp(36px,4.2vw,54px)/1.1 Lora,Georgia,serif;letter-spacing:-.03em;max-width:16ch;text-wrap:balance">Bring one finance role to the conversation.</h2>
 <p style="margin:20px 0 0;font:400 18px/1.65 Lora,Georgia,serif;color:#D7E6DE;max-width:44ch">Tell us the role and where your shortlist stands. If you already work with Daftar, your usual contact can introduce it.</p>
 </div>
-<div style="border-top:2px solid #A8C9B8;padding-top:18px">
-<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff">Email</div>
-<a href="mailto:ahmad@daftaradvisory.com?subject=Calibre%20Verdict%20enquiry" style="display:block;margin-top:8px;font:400 clamp(22px,2.2vw,28px) Lora,Georgia,serif;color:#fff" style-hover="color:#A8C9B8">ahmad@daftaradvisory.com</a>
-<p style="margin:16px 0 0;font-size:13px;line-height:1.6;color:#C7DACF">Please don't send candidate CVs until terms are agreed.</p>
+<div>
+<a href="mailto:ahmad@daftaradvisory.com?subject=Calibre%20Verdict%20enquiry" style="display:inline-block;font:400 clamp(22px,2.2vw,28px) Lora,Georgia,serif;color:#fff" style-hover="color:#A8C9B8">ahmad@daftaradvisory.com</a>
+<p style="margin:12px 0 0;font-size:13px;line-height:1.6;color:#C7DACF">Please don't send candidate CVs until terms are agreed.</p>
 </div>
 </div>
-<div style="max-width:1100px;width:100%;margin:clamp(40px,8vh,80px) auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:#C7DACF"><span><b style="color:#fff">Calibre by Daftar</b> · A product of Daftar Advisory · Amman</span><span>Structured hiring advisory for finance roles.</span></div>
+<div style="max-width:1100px;width:100%;margin:clamp(48px,9vh,96px) auto 0;font-size:12px;color:#C7DACF">Calibre by Daftar · A product of Daftar Advisory · Amman</div>
 </section>
 </sc-if>
 
 </main>
 
-<footer style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:0 clamp(16px,3vw,40px);height:64px;border-top:1px solid #D5E3DE;background:#fff">
+<footer style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:0 clamp(16px,3vw,40px);height:56px;border-top:1px solid #D5E3DE;background:#fff">
 <div><sc-if value="{{ hasPrev }}" hint-placeholder-val="{{ false }}"><button onClick="{{ goPrev }}" style="font-size:13px;font-weight:600;color:#596B66;padding:10px 0" style-hover="color:#0E211B">← {{ prevLabel }}</button></sc-if></div>
-<div style="display:flex;align-items:center;gap:14px">
-<div style="display:flex;gap:5px"><sc-for list="{{ nav }}" as="p" hint-placeholder-count="5"><button onClick="{{ p.go }}" title="{{ p.name }}" aria-label="{{ p.name }}" style="width:clamp(18px,3vw,36px);height:16px;display:flex;align-items:center"><span style="display:block;width:100%;height:3px;border-radius:2px;background:{{ p.seg }};transition:background .3s ease"></span></button></sc-for></div>
-<span style="font-size:12px;font-weight:600;color:#596B66;white-space:nowrap">{{ roomLabel }}</span>
-</div>
-<div style="display:flex;justify-content:flex-end;align-items:center;gap:14px">
+<span style="font-size:12px;color:#596B66;white-space:nowrap">{{ roomLabel }}</span>
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:16px">
 <sc-if value="{{ showKeys }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;color:#596B66">← → keys</span></sc-if>
-<sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="font-size:13px;font-weight:600;background:#0E211B;color:#fff;padding:10px 16px;border-radius:8px;white-space:nowrap" style-hover="background:#265147">{{ nextLabel }} →</button></sc-if>
+<sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="font-size:13px;font-weight:600;color:#0E211B;padding:10px 0;white-space:nowrap" style-hover="color:#265147">{{ nextLabel }} →</button></sc-if>
 </div>
 </footer>
 </div>
@@ -258,7 +232,7 @@ const FAQS = [
 ];
 
 class Component extends DCLogic {
-  state = { route: '', step: 0, out: 4, aud: 1, faq: 0 };
+  state = { route: '', step: 0 };
 
   componentDidMount() {
     this.onHash = () => this.setState({ route: this.parse() });
@@ -289,7 +263,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { route, step, out, aud, faq } = this.state;
+    const { route, step } = this.state;
     const idx = ROUTES.indexOf(route);
     const roomIdx = ROOMS.findIndex(r => r.id === route);
     const is = {}; ROUTES.forEach(r => { is[r || 'landing'] = r === route; });
@@ -302,11 +276,11 @@ class Component extends DCLogic {
         num: r.num, name: r.name, go: () => this.go(r.id),
         color: i === roomIdx ? '#0E211B' : '#596B66', numColor: i === roomIdx ? '#265147' : '#596B66',
         bar: i === roomIdx ? '#265147' : 'transparent',
-        seg: route === 'contact' || i <= roomIdx ? '#265147' : '#D5E3DE',
       })),
       roomLabel: roomIdx >= 0 ? `Room ${roomIdx + 1} of 5` : route === 'contact' ? 'Next step' : 'Entrance',
-      hasPrev: idx > 0, hasNext: idx < ROUTES.length - 1,
-      prevLabel: LABEL[ROUTES[idx - 1]] ?? '', nextLabel: route === '' ? 'Begin with Method' : (LABEL[ROUTES[idx + 1]] ?? ''),
+      // The landing hero carries its own primary action, so the footer does not repeat it.
+      hasPrev: idx > 0, hasNext: idx > 0 && idx < ROUTES.length - 1,
+      prevLabel: LABEL[ROUTES[idx - 1]] ?? '', nextLabel: LABEL[ROUTES[idx + 1]] ?? '',
       goPrev: () => this.shift(-1), goNext: () => this.shift(1),
       goHome: () => this.go(''), goMethod: () => this.go('method'), goFaq: () => this.go('faq'), goContact: () => this.go('contact'),
       steps: STEPS.map(([t, b], i) => ({
@@ -314,26 +288,17 @@ class Component extends DCLogic {
         bg: i === step ? '#F0F5F3' : 'transparent', numColor: i <= step ? '#265147' : '#596B66', titleColor: i === step ? '#0E211B' : '#394740',
       })),
       stepNum: step + 1, stepName: STEPS[step][0], stepNote: STEPS[step][2],
-      noteBg: step === 3 ? '#0E211B' : '#F0F5F3', noteInk: step === 3 ? '#fff' : '#1C3D35',
       criteria: CRIT.map(([name, a, b, diverge]) => ({
         name, a: read ? a : '—', b: read ? b : '—',
         aInk: read ? '#394740' : '#596B66', bInk: cmp && diverge ? '#0E211B' : read ? '#394740' : '#596B66',
-        bBg: cmp && diverge ? '#E3EEEA' : 'transparent',
+        bBg: cmp && diverge ? '#E3EEEA' : 'transparent', bWeight: cmp && diverge ? 700 : 400,
       })),
-      outputs: OUTS.map(([t], i) => ({
-        num: ROMAN[i], title: t, pick: () => this.setState({ out: i }), pressed: i === out,
-        bg: i === out ? '#F0F5F3' : 'transparent', color: i === out ? '#0E211B' : '#394740',
-        numColor: i === out ? '#265147' : '#596B66', weight: i === out ? 700 : 500, mark: i === out ? '→' : '',
-      })),
-      outNum: ROMAN[out], outTitle: OUTS[out][0], outBody: OUTS[out][1],
-      audiences: AUD.map(([t, q, b], i) => ({
-        title: t, q, body: b, pick: () => this.setState({ aud: i }), pressed: i === aud,
-        bg: i === aud ? '#0E211B' : '#fff', ink: i === aud ? '#fff' : '#0E211B',
-        border: i === aud ? '#0E211B' : '#D5E3DE', kicker: i === aud ? '#A8C9B8' : '#265147', bodyInk: i === aud ? '#D7E6DE' : '#394740',
-      })),
-      phases: PHASES.map(([t, b], i) => ({ n: i + 1, title: t, body: b })),
+      docs: OUTS.slice(0, 4).map(([title, body], i) => ({ num: ROMAN[i], title, body })),
+      memoTitle: OUTS[4][0], memoBody: OUTS[4][1],
+      audiences: AUD.map(([title, q, body]) => ({ title, q, body })),
+      phases: PHASES.map(([title, body], i) => ({ n: i + 1, title, body })),
       terms: TERMS,
-      faqs: FAQS.map(([q, a], i) => ({ q, a, open: i === faq, sign: i === faq ? '−' : '+', toggle: () => this.setState({ faq: i === faq ? -1 : i }) })),
+      faqs: FAQS.map(([q, a]) => ({ q, a })),
     };
   }
 }
