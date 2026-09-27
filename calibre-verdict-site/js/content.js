@@ -20,9 +20,9 @@ window.CALIBRE = {
   // [title, what the step is, what the example standard shows at this step]
   steps: [
     ['Define', 'Write the role standard with you before any finalist is read.', 'Criteria are agreed and locked. Nothing is scored yet.'],
-    ['Read', 'Two readers review each finalist independently against the standard.', 'Each reader records evidence notes, without seeing the other’s.'],
+    ['Read', 'Two readers score each finalist independently against a role-specific standard.', 'Each reader records evidence notes, without seeing the other’s. Finalists are presented in entry order.'],
     ['Compare', 'Put the notes side by side and make the disagreement visible.', 'Divergence on stakeholder judgment is flagged, not averaged away.'],
-    ['Calibrate', 'Resolve or name the disagreement in one human-written memo.', 'The memo states a recommendation, the reasons, and the evidence still missing.'],
+    ['Calibrate', 'Resolve or name the disagreement in one written recommendation.', 'One written recommendation, with the reasons and risks named, and the evidence still missing.'],
   ],
 
   // Illustrative role standard: [criterion, reader A, reader B, readers diverge?]
@@ -36,10 +36,10 @@ window.CALIBRE = {
   // The last entry is the memo and is rendered on its own.
   deliverables: [
     ['Role standard', 'The written criteria for this role, agreed before any finalist is read.'],
-    ['Evidence notes', 'Each reader’s independent notes on each finalist, tied to the criteria.'],
+    ['Evidence notes', 'Each finalist scored independently against a role-specific standard. Finalists presented in entry order.'],
     ['Divergence record', 'Where the readers disagreed, and how that was resolved or left open.'],
     ['Interview follow-ups', 'Questions for your panel where the evidence is thin.'],
-    ['Recommendation memo', 'One human-written recommendation with its reasons, risks and limits.'],
+    ['Recommendation memo', 'One written recommendation, with the reasons and risks named.'],
   ],
 
   seats: [
@@ -57,6 +57,7 @@ window.CALIBRE = {
 
   terms: [
     ['Role in scope', 'One finance role'],
+    ['Timeline', 'Two weeks'],
     ['Finalists reviewed', 'Confirmed at scoping'],
     ['Fee', 'Fixed, quoted in writing'],
     ['Candidate data handling', 'Agreed before sharing'],

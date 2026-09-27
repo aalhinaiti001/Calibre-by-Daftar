@@ -55,6 +55,13 @@ This folder lives inside the `Calibre-by-Daftar` repository, so point the host a
 
 **Any static host:** upload the contents of this folder as they are.
 
-## Design rules
+## Brand
 
-The layout follows the designer golden rules applied to `calibre-design-canvas/Calibre Guided.dc.html` in PR #9: one focal point per screen, one strong interaction (the Method walkthrough), dark contrast only on the landing and contact screens, and no containers that exist only to decorate.
+The site follows the **Calibre Unified Master Brand Handbook v2.0-Canon**:
+
+- Tokens in `css/styles.css` use the handbook's names and values (Forest, stone, mist, sage, clay; Lora, Plus Jakarta Sans, IBM Plex Sans Arabic).
+- Radii: buttons 8px, monogram tile 9px, cards 12px. No shadows, gradients or monospace.
+- Every screen ends with the attribution line and the full four-sentence use statement.
+- Claims use the mandatory phrasing: "Scored independently against a role-specific standard", "Finalists presented in entry order", "One written recommendation, with the reasons and risks named". Never rank, predict or automate a hiring conclusion.
+
+Layout also follows the designer golden rules applied to `calibre-design-canvas/Calibre Guided.dc.html` in PR #9.
