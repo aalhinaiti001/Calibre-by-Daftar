@@ -42,6 +42,14 @@
         <span><span class="phase__title">${esc(title)}.</span> <span class="phase__body">${esc(body)}</span></span>
       </li>`).join('');
 
+    const offer = ([name, fence, body], cls) => `
+      <div class="offer${cls}">
+        <span class="offer__name">${esc(name)}</span>
+        <span class="offer__fence">${esc(fence)}</span>
+        <span class="offer__body">${esc(body)}</span>
+      </div>`;
+    $('offers').innerHTML = C.offers.map((o) => offer(o, '')).join('') + offer(C.addon, ' offer--addon');
+
     $('terms').innerHTML = C.terms.map(([k, v]) => `
       <div class="terms__row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
 
