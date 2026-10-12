@@ -19,10 +19,10 @@ window.CALIBRE = {
 
   // [title, what the step is, what the example standard shows at this step]
   steps: [
-    ['Define', 'Write the role standard with you before any finalist is read.', 'Criteria are agreed and locked. Nothing is scored yet.'],
-    ['Read', 'Two readers score each finalist independently against a role-specific standard.', 'Each reader records evidence notes, without seeing the other’s. Finalists are presented in entry order.'],
-    ['Compare', 'Put the notes side by side and make the disagreement visible.', 'Divergence on stakeholder judgment is flagged, not averaged away.'],
-    ['Calibrate', 'Resolve or name the disagreement in one written recommendation.', 'One written recommendation, with the reasons and risks named, and the evidence still missing.'],
+    ['Define', 'Write the role standard with you before any finalist is read.', 'The Role Definition Matrix and Anchored Scorecard are agreed and locked. Nothing is scored yet.'],
+    ['Read', 'Reviewers score each finalist independently against a role-specific standard.', 'Each reviewer records evidence on the Independent Review Grid without seeing the others’. Finalists are presented in entry order.'],
+    ['Compare', 'Put the grids side by side and make the disagreement visible.', 'Divergence on stakeholder judgment is flagged, not averaged away.'],
+    ['Calibrate', 'Resolve or name each disagreement, then write one recommendation.', 'The Executive Verdict Memo: one written recommendation, with the reasons and risks named, and the evidence still missing.'],
   ],
 
   // Illustrative role standard: [criterion, reader A, reader B, readers diverge?]
@@ -33,13 +33,14 @@ window.CALIBRE = {
     ['Technical accounting', 'Not tested', 'Not tested', false],
   ],
 
+  // The five Verdict components, the same in every scope.
   // The last entry is the memo and is rendered on its own.
   deliverables: [
-    ['Role standard', 'The written criteria for this role, agreed before any finalist is read.'],
-    ['Evidence notes', 'Each finalist scored independently against a role-specific standard. Finalists presented in entry order.'],
-    ['Divergence record', 'Where the readers disagreed, and how that was resolved or left open.'],
-    ['Interview follow-ups', 'Questions for your panel where the evidence is thin.'],
-    ['Recommendation memo', 'One written recommendation, with the reasons and risks named.'],
+    ['Role Definition Matrix', 'The criteria for this role and the evidence that would show each, agreed with you before any finalist is read.'],
+    ['Anchored Scorecard', 'A 1–5 evidence scale for every criterion, with anchors that say what each score requires.'],
+    ['Independent Review Grid', 'Each finalist scored independently against a role-specific standard. Finalists presented in entry order.'],
+    ['Calibration Notes', 'Where reviewers disagreed, and how each difference was resolved or left open.'],
+    ['Executive Verdict Memo', 'One written recommendation, with the reasons and risks named.'],
   ],
 
   seats: [
@@ -55,19 +56,31 @@ window.CALIBRE = {
     ['Memo', 'Walk through the recommendation with your decision-makers.'],
   ],
 
+  // Scopes follow the Calibre Pricing Strategy (October 2026). Prices are quoted in
+  // writing, not published here. [name, fence, what it adds]
+  offers: [
+    ['Second Opinion', 'Two finalists · Finance Manager and FP&A roles', 'The full review, from the same panel, on a choice between two finalists.'],
+    ['Verdict', 'Up to four finalists · Controller-level roles', 'All five components, from the Role Definition Matrix to the Executive Verdict Memo.'],
+    ['Verdict Senior', 'Up to four finalists · Finance Director, Group FC, CFO', 'Adds a 60–90 minute calibration session with your panel and a board-ready memo.'],
+  ],
+  addon: ['Probation Checkpoint', 'Add-on · day 75–90', 'The hire re-read against the same scorecard while you can still act. A review of the evidence, not a forecast of performance.'],
+
   terms: [
     ['Role in scope', 'One finance role'],
-    ['Timeline', 'Two weeks'],
-    ['Finalists reviewed', 'Confirmed at scoping'],
-    ['Fee', 'Fixed, quoted in writing'],
-    ['Candidate data handling', 'Agreed before sharing'],
+    ['Finalists', 'Two to four, from your shortlist'],
+    ['Turnaround', 'Two weeks from a complete shortlist'],
+    ['Fee', 'Fixed by scope, quoted in writing'],
+    ['Payment', 'Half on mandate, half on the memo'],
+    ['Candidate data', 'Signed data-processing agreement'],
   ],
 
   faqs: [
-    ['Is this recruitment?', 'No. You source the shortlist. We review it against a written role standard and hand back a memo. We do not source or place candidates.'],
+    ['Is this recruitment?', 'No. You source the shortlist. We review it against a written role standard and hand back a memo. No sourcing, no placement fee.'],
     ['Does Calibre choose the candidate?', 'No. The memo gives a recommendation with reasons, risks and missing evidence. Your team makes the decision.'],
     ['Why finance roles only?', 'The review depends on finance judgment. Reading whether someone owned a close, designed a control or made a technical call is the same work Daftar does on financial statements.'],
-    ['Does it replace our interviewers?', 'No. Your panel still interviews. Calibre gives them a shared standard and specific follow-up questions.'],
+    ['Does it replace our interviewers?', 'No. Your panel still interviews. Calibre gives them one standard to argue from and names the evidence still missing.'],
+    ['What evidence is it built on?', 'It is informed by structured-selection research, which favours a written standard and independent scoring. We do not apply research figures to Calibre or claim it cuts bad hires by any percentage.'],
+    ['Why does timing matter in Saudi Arabia?', 'From 27 October 2026, firms with five or more accountants must fill 50% of 44 accounting titles, including financial controller and financial manager, with Saudi nationals. Replacing a controller under that rule means thinner shortlists and more riding on each choice.'],
   ],
 
   contactEmail: 'ahmad@daftaradvisory.com',
