@@ -25,6 +25,6 @@ editing and deployment.
 
 ## Calibre landing page
 
-`calibre-landing/` is a deployable single-file landing page, a long-scroll
+`calibre-landing/` is a deployable, self-contained single-file landing page (`index.html`, built from `source.html`), a long-scroll
 alternative to the guided site, with the same copy. It is aligned with the
 Calibre Brand Handbook v2.0-Canon. See its README for sections and deployment.
