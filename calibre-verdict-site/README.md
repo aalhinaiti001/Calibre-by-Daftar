@@ -64,4 +64,12 @@ The site follows the **Calibre Unified Master Brand Handbook v2.0-Canon**:
 - Every screen ends with the attribution line and the full four-sentence use statement.
 - Claims use the mandatory phrasing: "Scored independently against a role-specific standard", "Finalists presented in entry order", "One written recommendation, with the reasons and risks named". Never rank, predict or automate a hiring conclusion.
 
+## Offer and claims
+
+The offer follows the Calibre strategy pack (October 2026): *Hiring Assumption Audit*, *Pricing Strategy* and *Market Entry Feasibility*.
+
+- Deliverables are the five canonical Verdict components: Role Definition Matrix, Anchored Scorecard, Independent Review Grid, Calibration Notes, Executive Verdict Memo.
+- Scopes: Second Opinion, Verdict, Verdict Senior, plus the Probation Checkpoint add-on. **Prices are not published on the site**: the pack is internal and proposals quote the fee in writing.
+- Do not use the audit's retired language: no "DOL 30%" or other bad-hire statistics, no "scientifically validated", no "uncontested white space", no "hiring diagnostic", and no percentage reduction in bad hires.
+
 Layout also follows the designer golden rules applied to `calibre-design-canvas/Calibre Guided.dc.html` in PR #9.
