@@ -7,13 +7,13 @@ window.CALIBRE = {
   rooms: [
     { id: 'method', num: 'i', name: 'Method' },
     { id: 'outputs', num: 'ii', name: 'Deliverables' },
-    { id: 'who', num: 'iii', name: "Who it's for" },
+    { id: 'who', num: 'iii', name: 'Who it’s for' },
     { id: 'pilot', num: 'iv', name: 'How it runs' },
     { id: 'faq', num: 'v', name: 'FAQ' },
   ],
 
   labels: {
-    '': 'Calibre', method: 'Method', outputs: 'Deliverables', who: "Who it's for",
+    '': 'Calibre', method: 'Method', outputs: 'Deliverables', who: 'Who it’s for',
     pilot: 'How it runs', faq: 'FAQ', contact: 'Next step',
   },
 

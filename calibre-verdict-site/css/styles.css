@@ -252,8 +252,8 @@ h1, h2, h3, p, ol, dl, dd, figure { margin: 0; }
 .phase__title { font-weight: 700; color: var(--forest-900); }
 .phase__body { color: var(--stone-600); }
 .terms__label { padding-bottom: 12px; font-size: 13px; font-weight: 700; color: var(--forest-900); border-bottom: 2px solid var(--forest-600); }
-.terms__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.terms__row dt { font: 400 17px var(--font-serif); color: var(--forest-900); }
+.terms__row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.terms__row dt { font: 400 17px var(--font-serif); color: var(--forest-900); white-space: nowrap; }
 .terms__row dd { font-size: 13px; color: var(--stone-600); text-align: right; }
 .terms__note { margin-top: 14px; font-size: 13px; line-height: 1.6; color: var(--stone-500); }
 .terms .btn { margin-top: 28px; }
@@ -306,6 +306,11 @@ h1, h2, h3, p, ol, dl, dd, figure { margin: 0; }
   .hero, .split { grid-template-columns: minmax(0, 1fr); }
   .doc-row { grid-template-columns: 36px minmax(0, 1fr); }
   .doc-row > :nth-child(3) { grid-column: 2; }
+}
+/* Phone: the room bar (previous / next, room count) carries navigation, so the
+   header drops the room links rather than showing one and clipping the rest. */
+@media (max-width: 720px) {
+  .nav { display: none; }
 }
 @media (max-width: 560px) {
   .footer__keys { display: none; }
