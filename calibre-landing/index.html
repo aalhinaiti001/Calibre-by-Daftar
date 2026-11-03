@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibre Verdict · Calibre by Daftar</title>
+    <meta name="description" content="Structured hiring advisory for finance roles: a written role standard, independent scoring of your finalist shortlist, and one written recommendation with the reasons and risks named.">
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Calibre Verdict · Calibre by Daftar">
+    <meta property="og:description" content="Make a finance hiring decision you can explain. One role · two weeks · fixed fee.">
+    <meta property="og:url" content="https://calibre.daftaradvisory.com/">
+    <meta property="og:image" content="https://calibre.daftaradvisory.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Inline SVG favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23265147'/%3E%3Ctext x='16' y='23' font-family='Lora,Georgia,serif' font-size='19' font-weight='600' fill='%23FFFFFF' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+    <!--
+      NOTE: Tailwind Play CDN compiles CSS in the browser at runtime, fine for
+      prototyping, but swap it for a built stylesheet (Tailwind CLI / PostCSS)
+      before production.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Calibre Brand Handbook v2.0-Canon, § 03 tokens
+                    colors: {
+                        white: '#FFFFFF',
+                        paper: { 100: '#F6F7F8', 200: '#F0F5F3' },
+                        ink: { 950: '#0E1113' },
+                        forest: { 50: '#F0F5F3', 100: '#D5E3DE', 150: '#E3EEEA', 600: '#265147', 700: '#1C3D35', 900: '#0E211B' },
+                        clay: { 500: '#536269', 600: '#536269' },
+                        sage: { 300: '#A8C9B8' },
+                        mist: { 200: '#D7E6DE', 300: '#C9D8D2', 350: '#C7DACF' },
+                        // Utility greys remapped to brand neutrals
+                        stone: { 50: '#F6F7F8', 100: '#E3EEEA', 200: '#D5E3DE', 300: '#C9D8D2', 400: '#C7DACF', 500: '#596B66', 600: '#394740', 700: '#394740', 800: '#1C3D35' },
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'Arial', 'sans-serif'],
+                        arabic: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+                    },
+                    borderRadius: { btn: '8px', tile: '9px', card: '12px' },
+                    borderColor: { DEFAULT: '#D5E3DE' },
+                    height: { header: '68px' },
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <style>
+      /* Brand: no shadows, no gradients, no monospace (Handbook § 03). */
+      /* ── Scroll reveal + proof storytelling ── */
+      [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--reveal-delay,0ms);}
+      [data-reveal].is-in{opacity:1;transform:none;}
+      .proof-card{transition:transform .4s cubic-bezier(.16,1,.3,1);}
+      .proof-card:hover{transform:translateY(-4px);}
+      .proof-bar{height:3px;width:0;margin:12px auto 0;max-width:72px;border-radius:999px;background:currentColor;opacity:.4;transition:width .9s cubic-bezier(.16,1,.3,1) .35s;}
+      .proof-card.is-in .proof-bar{width:100%;}
+      .proof-gap-pill{opacity:0;transform:translateY(8px) scale(.92);transition:opacity .5s ease .95s,transform .6s cubic-bezier(.16,1,.3,1) .95s;}
+      .proof-card.is-in .proof-gap-pill{opacity:1;transform:none;}
+      a[href="#contact"] .lucide,a[href="#method"] .lucide{transition:transform .25s ease;}
+      a[href="#contact"]:hover .lucide{transform:translateX(3px);}
+      a[href="#method"]:hover .lucide{transform:translateY(2px);}
+      @media (prefers-reduced-motion: reduce){
+        [data-reveal],[data-reveal].is-in{opacity:1 !important;transform:none !important;transition:none !important;}
+        .proof-card,.proof-card:hover{transition:none;transform:none;}
+        .proof-bar{transition:none;width:100%;}
+        .proof-gap-pill{transition:none;opacity:1;transform:none;}
+        a[href="#contact"] .lucide,a[href="#method"] .lucide{transition:none;}
+      }
+    </style>
+</head>
+<body class="bg-white text-ink-950 font-sans antialiased selection:bg-forest-600 selection:text-white">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:bg-ink-950 focus:text-white focus:px-4 focus:py-2 focus:rounded-btn focus:text-sm focus:font-semibold">Skip to content</a>
+
+    <!-- Header -->
+    <header class="border-b border-stone-200/80 bg-paper-100/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-header flex items-center justify-between">
+            <a href="#" class="flex items-center gap-[11px]" aria-label="Calibre by Daftar, home">
+                <span aria-hidden="true" class="grid place-items-center w-9 h-9 rounded-tile bg-forest-600 text-white font-serif font-semibold text-xl leading-none">C</span>
+                <span><span class="block font-serif italic text-xl leading-none text-forest-900">Calibre</span><span class="block text-[10px] tracking-[.07em] text-stone-500 mt-[3px]">by Daftar</span></span>
+            </a>
+
+            <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#noise" class="text-stone-600 hover:text-forest-600 transition-colors">The Problem</a>
+                <a href="#method" class="text-stone-600 hover:text-forest-600 transition-colors">The Method</a>
+                <a href="#outputs" class="text-stone-600 hover:text-forest-600 transition-colors">Deliverables</a>
+                <a href="#pilot" class="text-stone-600 hover:text-forest-600 transition-colors">How It Runs</a>
+                <a href="#faq" class="text-stone-600 hover:text-forest-600 transition-colors">FAQ</a>
+            </nav>
+
+            <div class="flex items-center gap-5">
+                <a href="https://daftaradvisory.com/ar/calibre" lang="ar" class="hidden sm:inline font-arabic text-sm font-medium text-clay-600 hover:text-forest-600 transition-colors">العربية</a>
+                <a href="#contact" class="bg-forest-600 hover:bg-forest-700 text-white text-xs font-semibold tracking-wider uppercase px-6 py-3 rounded-btn transition-all">
+                    Discuss a Role
+                </a>
+                <button id="menuToggle" type="button" class="md:hidden text-stone-700 hover:text-forest-600 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden border-t border-stone-200/80 bg-paper-100">
+            <nav aria-label="Mobile" class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1 text-sm font-medium">
+                <a href="#noise" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">The Problem</a>
+                <a href="#method" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">The Method</a>
+                <a href="#outputs" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">Deliverables</a>
+                <a href="#pilot" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">How It Runs</a>
+                <a href="#faq" class="py-3 text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">FAQ</a>
+                <a href="https://daftaradvisory.com/ar/calibre" lang="ar" class="py-3 font-arabic text-stone-700 hover:text-forest-600 transition-colors border-b border-stone-200/60">العربية</a>
+                <a href="#contact" class="py-3 text-forest-600 font-semibold">Discuss a role</a>
+            </nav>
+        </div>
+    </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+
+                <div class="lg:col-span-6 space-y-8">
+                    <div class="inline-flex items-center gap-3" data-reveal style="--reveal-delay:0ms">
+                        <span class="h-[1px] w-8 bg-clay-500"></span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-clay-500">Calibre Verdict · Finance roles only</span>
+                    </div>
+                    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight text-ink-950" data-reveal style="--reveal-delay:80ms">
+                        Make a finance hiring decision <br>
+                        <span class="italic text-forest-600 font-medium">you can explain.</span>
+                    </h1>
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed font-serif font-light max-w-xl" data-reveal style="--reveal-delay:160ms">
+                        A role standard, independent scoring of your finalist shortlist, and one written recommendation with the reasons and risks named. You make the decision.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4 items-center" data-reveal style="--reveal-delay:240ms">
+                        <a href="#contact" class="bg-forest-600 hover:bg-forest-700 text-white font-semibold text-sm px-8 py-4 rounded-btn transition-colors flex items-center gap-2">
+                            Discuss a role <i data-lucide="arrow-right-circle" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="#method" class="text-stone-700 hover:text-forest-600 font-semibold text-sm px-6 py-4 flex items-center gap-2">
+                            See the method <i data-lucide="chevron-down" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-8 pt-6 border-t border-stone-200 max-w-md" data-reveal style="--reveal-delay:320ms">
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">1 role</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Per engagement</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">2 weeks</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">From a full shortlist</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-serif font-bold text-forest-600">Fixed fee</span>
+                            <span class="text-[11px] tracking-wider uppercase font-bold text-stone-500">Quoted in writing</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-relaxed max-w-md" data-reveal style="--reveal-delay:360ms">
+                        Finance managers, FP&amp;A leads, controllers, heads of finance and CFOs. You bring the shortlist. We do not source candidates.
+                    </p>
+                </div>
+
+                <!-- Proof card: same finalist, two readers -->
+                <div class="lg:col-span-6 relative" data-reveal style="--reveal-delay:180ms">
+                    <div class="absolute inset-0 bg-forest-100 rounded-card -rotate-2 transform scale-[1.02]" aria-hidden="true"></div>
+                    <div id="proofCard" class="proof-card relative bg-paper-100 border border-stone-200/80 rounded-card p-8 space-y-8">
+                        <div class="flex items-center justify-between border-b border-stone-200 pb-4">
+                            <div>
+                                <span class="font-serif italic text-lg text-ink-950 font-medium">Same finalist, two readers</span>
+                                <span class="text-[11px] block text-stone-500 uppercase font-medium mt-0.5">One CV · No written criteria</span>
+                            </div>
+                            <span class="text-[11px] text-stone-500 font-sans tabular-nums">Illustrative</span>
+                        </div>
+
+                        <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-6">
+                            <div class="text-center">
+                                <div class="text-[11px] uppercase tracking-widest text-stone-500 font-bold mb-2">Reader A</div>
+                                <div class="font-serif text-6xl font-bold text-forest-600 leading-none" data-count="82">82</div>
+                                <div class="text-[11px] text-stone-500 mt-1">/ 100</div>
+                                <div class="proof-bar text-forest-600"></div>
+                                <div class="text-xs font-bold text-forest-600 mt-3">“Owned the close. Strong.”</div>
+                            </div>
+                            <div class="w-px h-24 bg-stone-200" aria-hidden="true"></div>
+                            <div class="text-center">
+                                <div class="text-[11px] uppercase tracking-widest text-stone-500 font-bold mb-2">Reader B</div>
+                                <div class="font-serif text-6xl font-bold text-clay-600 leading-none" data-count="41">41</div>
+                                <div class="text-[11px] text-stone-500 mt-1">/ 100</div>
+                                <div class="proof-bar text-clay-600"></div>
+                                <div class="text-xs font-bold text-clay-600 mt-3">“Prepared recs. Didn’t sign off.”</div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-stone-200 pt-4 flex items-center justify-center gap-3 text-center proof-gap-pill">
+                            <span class="font-sans tabular-nums font-bold text-clay-600 text-sm">Δ 41 pts</span>
+                            <span class="text-xs text-stone-500">Neither reader had written criteria.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy statement -->
+    <section id="noise" class="py-20 lg:py-28 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <span class="text-xs uppercase tracking-widest font-bold text-forest-600">The Problem</span>
+            <blockquote class="font-serif text-2xl sm:text-3xl lg:text-4xl italic text-ink-950 leading-relaxed font-light">
+                &ldquo;Two readers, one finalist, two verdicts. Calibre writes the role standard with you before anyone reads, so the disagreement becomes something you can see and resolve.&rdquo;
+            </blockquote>
+            <p class="text-sm uppercase tracking-widest text-stone-500 font-semibold">The Calibre method, by Daftar</p>
+        </div>
+    </section>
+
+    <!-- The Method -->
+    <section id="method" class="py-20 lg:py-32 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-clay-500">The Method</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+                        Four steps from opinion to a written standard.
+                    </h2>
+                    <p class="text-stone-600 font-serif text-base leading-relaxed">
+                        Each step leaves a record, so the reasoning behind the recommendation can be checked later.
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">1</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Define</h3>
+                                <p class="text-xs text-stone-600 mt-1">Write the role standard with you before any finalist is read.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">2</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Read</h3>
+                                <p class="text-xs text-stone-600 mt-1">Two readers score each finalist independently against a role-specific standard. Finalists are presented in entry order.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">3</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Compare</h3>
+                                <p class="text-xs text-stone-600 mt-1">Put the notes side by side and make the disagreement visible.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-6 h-6 shrink-0 rounded-full bg-forest-50 flex items-center justify-center border border-forest-600/20 text-forest-600 text-xs font-bold mt-0.5">4</span>
+                            <div>
+                                <h3 class="text-sm font-bold text-ink-950">Calibrate</h3>
+                                <p class="text-xs text-stone-600 mt-1">Resolve or name the disagreement in one written recommendation, with the reasons and risks named.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mock role standard -->
+                <div class="lg:col-span-7 bg-white border border-stone-200 rounded-card p-6 relative">
+                    <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-4">
+                        <div class="flex gap-1.5" aria-hidden="true">
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-stone-200"></span>
+                        </div>
+                        <span class="text-xs text-stone-500 font-sans tabular-nums">Role standard: Financial Controller</span>
+                        <span class="text-[11px] text-stone-500 text-right">Illustrative</span>
+                    </div>
+                    <div class="grid grid-cols-12 gap-4">
+                        <div class="col-span-5 bg-stone-50 border border-stone-200/60 rounded-tile p-3 space-y-4">
+                            <div class="text-[11px] uppercase font-bold tracking-wider text-stone-500">Criteria</div>
+                            <ul class="space-y-2.5 text-[12px] text-stone-600">
+                                <li class="flex items-center gap-1.5"><i data-lucide="calendar-check" class="w-3.5 h-3.5" aria-hidden="true"></i> Close ownership</li>
+                                <li class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5" aria-hidden="true"></i> Controls design</li>
+                                <li class="font-bold text-forest-600 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5" aria-hidden="true"></i> Stakeholder judgment</li>
+                                <li class="flex items-center gap-1.5"><i data-lucide="scale" class="w-3.5 h-3.5" aria-hidden="true"></i> Technical accounting</li>
+                            </ul>
+                        </div>
+                        <div class="col-span-7 bg-paper-100/50 rounded-tile border border-stone-200/60 p-4 space-y-3">
+                            <div class="text-[12px] font-bold text-ink-950">Reader A vs Reader B</div>
+                            <div class="space-y-2.5">
+                                <div>
+                                    <div class="flex justify-between text-[11px] text-stone-600 mb-1"><span>Close ownership</span><span class="font-sans tabular-nums font-bold text-forest-600">Agree</span></div>
+                                    <div class="h-1.5 bg-stone-200 rounded-full overflow-hidden"><div class="h-full bg-forest-600 rounded-full" style="width:100%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[11px] text-stone-600 mb-1"><span>Controls design</span><span class="font-sans tabular-nums font-bold text-forest-600">Agree</span></div>
+                                    <div class="h-1.5 bg-stone-200 rounded-full overflow-hidden"><div class="h-full bg-forest-600 rounded-full" style="width:100%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[11px] text-stone-600 mb-1"><span>Stakeholder judgment</span><span class="font-sans tabular-nums font-bold text-clay-600">Strong / Thin</span></div>
+                                    <div class="h-1.5 bg-stone-200 rounded-full overflow-hidden"><div class="h-full bg-clay-500 rounded-full" style="width:50%"></div></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-stone-200">
+                                <span class="text-[11px] text-stone-500 shrink-0">Divergence</span>
+                                <span class="text-[11px] font-sans tabular-nums font-bold text-clay-600">Flagged</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outputs bento -->
+    <section id="outputs" class="py-20 lg:py-32 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+                <span class="text-xs uppercase tracking-widest font-bold text-forest-600">Deliverables</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+                    The record you keep.
+                </h2>
+                <p class="text-stone-500 text-sm sm:text-base font-serif">
+                    One memo, and the working documents that show how it was reached.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-card space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">I.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Role standard</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">The written criteria for this role, agreed with you before any finalist is read.</p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Written • Agreed first</span>
+                </div>
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-card space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">II.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Evidence notes</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">Each finalist scored independently against a role-specific standard. Finalists presented in entry order.</p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Independent • Entry order</span>
+                </div>
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-card space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">III.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Divergence record</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">Where the readers disagreed, and how that was resolved or left open.</p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Visible • On the record</span>
+                </div>
+                <div class="bg-paper-100 border border-stone-200 p-8 rounded-card space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-stone-400 font-bold" aria-hidden="true">IV.</span>
+                        <h3 class="text-lg font-bold text-ink-950">Interview follow-ups</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed font-serif">Questions for your panel where the evidence is thin.</p>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-forest-600">Targeted • For your panel</span>
+                </div>
+                <div class="md:col-span-2 bg-forest-50 border border-forest-600/10 p-8 rounded-card space-y-6 flex flex-col justify-between hover:border-forest-600/30 transition-colors">
+                    <div class="space-y-4">
+                        <span class="font-serif italic text-3xl text-forest-600/40 font-bold" aria-hidden="true">V.</span>
+                        <h3 class="text-lg font-bold text-forest-600">Recommendation memo</h3>
+                        <p class="text-xs text-forest-900/80 leading-relaxed font-serif">One written recommendation, with the reasons and risks named, and the evidence still missing. Your team makes the decision.</p>
+                    </div>
+                    <a href="#pilot" class="text-[11px] uppercase tracking-wider font-bold text-clay-600 hover:text-forest-600 transition-colors flex items-center gap-1">
+                        How it runs <i data-lucide="arrow-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="py-20 lg:py-32 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs uppercase tracking-widest font-bold text-clay-500">Who It’s For</span>
+                <h2 class="font-serif text-3xl font-semibold tracking-tight mt-2">For whoever has to explain the finance appointment</h2>
+                <p class="text-stone-500 text-sm font-serif mt-4">The question you face changes with your seat. The method doesn’t.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="text-sm font-bold text-ink-950">Founder / CEO</h3>
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">How much can our next finance lead really carry?</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">A clear role definition and evidence of ownership, before the mandate is set.</p>
+                </div>
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="text-sm font-bold text-ink-950">CFO / finance director</h3>
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">Does this finalist’s past work match the technical load?</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">Close, controls, FP&amp;A and technical-accounting evidence, read against your standard.</p>
+                </div>
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="text-sm font-bold text-ink-950">Board / investor</h3>
+                    <p class="font-serif italic text-stone-600 text-sm leading-relaxed">Can the team explain why this appointment was made?</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">A decision record that shows the basis, the uncertainty and the challenge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it runs -->
+    <section id="pilot" class="py-20 lg:py-28 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="text-xs uppercase tracking-widest font-bold text-forest-600">How It Runs</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">One role. One shortlist. One memo.</h2>
+                    <p class="text-stone-600 font-serif text-base leading-relaxed">
+                        A first engagement is scoped to a single finance role, usually through your existing Daftar relationship.
+                    </p>
+                    <ol class="space-y-2 text-sm text-stone-600 pt-2">
+                        <li><span class="font-bold text-ink-950">1 · Scope.</span> Agree the role, the shortlist and the terms in writing.</li>
+                        <li><span class="font-bold text-ink-950">2 · Standard.</span> Write the role criteria together and lock them.</li>
+                        <li><span class="font-bold text-ink-950">3 · Review.</span> Independent reads, then comparison and calibration.</li>
+                        <li><span class="font-bold text-ink-950">4 · Memo.</span> Walk through the recommendation with your decision-makers.</li>
+                    </ol>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="bg-paper-100 border-l-4 border-forest-600 rounded-card p-8 space-y-4">
+                        <div class="text-[11px] uppercase tracking-wider font-bold text-stone-500">Agreed at scoping</div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Role in scope:</span> one finance role</span></div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Finalists:</span> two to four, from your shortlist</span></div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Turnaround:</span> two weeks from a complete shortlist</span></div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Fee:</span> fixed, quoted in writing</span></div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Payment:</span> half on mandate, half on the memo</span></div>
+                        <div class="flex items-start gap-3 text-sm text-ink-950"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-forest-600 shrink-0" aria-hidden="true"></i><span><span class="font-medium">Candidate data:</span> signed data-processing agreement</span></div>
+                        <p class="text-xs text-stone-500 pt-2 border-t border-stone-200">Terms are set in writing before any candidate material is shared.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 lg:py-28 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-clay-500">FAQ</span>
+                <h2 class="font-serif text-3xl font-semibold tracking-tight mt-2">What it is, and what it isn’t</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-10">
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="font-serif text-lg font-semibold text-ink-950">Is this recruitment?</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">No. You source the shortlist. We review it against a written role standard and hand back a memo. We do not source or place candidates.</p>
+                </div>
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="font-serif text-lg font-semibold text-ink-950">Does Calibre choose the candidate?</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">No. The memo gives a recommendation with reasons, risks and missing evidence. Your team makes the decision.</p>
+                </div>
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="font-serif text-lg font-semibold text-ink-950">Why finance roles only?</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">The review depends on finance judgment. Reading whether someone owned a close, designed a control or made a technical call is the same work Daftar does on financial statements.</p>
+                </div>
+                <div class="border-t border-stone-300 pt-6 space-y-3">
+                    <h3 class="font-serif text-lg font-semibold text-ink-950">Does it replace our interviewers?</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">No. Your panel still interviews. Calibre gives them a shared standard and specific follow-up questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 lg:py-32 bg-paper-200 border-b border-stone-200/60">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-forest-900 text-white rounded-card p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+
+                <div class="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-sage-300 font-bold block">Next Step</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-semibold leading-tight text-white">
+                            Bring one finance role to the conversation.
+                        </h2>
+                        <p class="text-sm text-mist-200 font-serif max-w-sm leading-relaxed">
+                            Tell us the role and where your shortlist stands. If you already work with Daftar, your usual contact can introduce it.
+                        </p>
+                        <p class="text-xs text-mist-350 max-w-sm leading-relaxed">Please don’t send candidate CVs until terms are agreed.</p>
+                    </div>
+
+                    <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="mailto:ahmad@daftaradvisory.com?subject=Calibre%20Verdict%20enquiry" class="bg-forest-700 border border-forest-600 hover:bg-forest-600 p-5 rounded-tile block transition-all group">
+                            <i data-lucide="mail" class="w-5 h-5 text-sage-300 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-sage-300 transition-colors">Email</h3>
+                            <p class="text-[11px] text-mist-200 mt-1 leading-snug break-all">ahmad@daftaradvisory.com</p>
+                        </a>
+                        <a href="https://wa.me/962798880035?text=Hi%20Calibre%2C%20I%27d%20like%20to%20discuss%20a%20finance%20role." target="_blank" rel="noopener" class="bg-forest-700 border border-forest-600 hover:bg-forest-600 p-5 rounded-tile block transition-all group">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-sage-300 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-sage-300 transition-colors">WhatsApp</h3>
+                            <p class="text-[11px] text-mist-200 mt-1 leading-snug">+962 79 888 0035</p>
+                        </a>
+                        <a href="https://calendly.com/ahmad-daftar/scoping-call" target="_blank" rel="noopener" class="bg-forest-700 border border-forest-600 hover:bg-forest-600 p-5 rounded-tile block transition-all group">
+                            <i data-lucide="calendar-check" class="w-5 h-5 text-sage-300 mb-2" aria-hidden="true"></i>
+                            <h3 class="text-sm font-bold text-white group-hover:text-sage-300 transition-colors">Book a call</h3>
+                            <p class="text-[11px] text-mist-200 mt-1 leading-snug">30-minute scoping call on Calendly.</p>
+                        </a>
+                        <a href="https://linkedin.com/in/ahmad-alhinaiti" target="_blank" rel="noopener" class="bg-forest-700 border border-forest-600 hover:bg-forest-600 p-5 rounded-tile block transition-all group">
+                            <svg viewBox="0 0 24 24" class="w-5 h-5 text-sage-300 mb-2" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"></path></svg>
+                            <h3 class="text-sm font-bold text-white group-hover:text-sage-300 transition-colors">LinkedIn</h3>
+                            <p class="text-[11px] text-mist-200 mt-1 leading-snug">A quick first introduction.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar credibility strip -->
+    <section class="py-16 bg-paper-100 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-3">
+                <h2 class="font-serif text-2xl font-semibold text-ink-950">A finance discipline, applied to hiring.</h2>
+                <p class="text-stone-600 text-sm max-w-2xl font-serif leading-relaxed">
+                    Daftar is a boutique finance advisory practice: senior judgment without Big Four overhead. One practitioner reads the evidence, writes the memo, and stands behind it. Calibre brings that same discipline to finance hiring.
+                </p>
+                <a href="https://daftaradvisory.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-bold text-clay-600 hover:text-forest-600 transition-colors pt-1">
+                    Visit Daftar Advisory <i data-lucide="external-link" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="lg:col-span-4 font-sans tabular-nums text-xs text-stone-500 leading-relaxed">
+                <span class="block text-ink-950 font-bold mb-1">Daftar services</span>
+                IFRS financial statements<br>
+                Audit readiness<br>
+                Technical reviews<br>
+                Quality of earnings<br>
+                <span class="block text-ink-950 font-bold mt-3 mb-1">Market</span>
+                Amman · GCC · MENA
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+    <!-- Footer -->
+    <footer class="bg-forest-900 text-mist-350 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-2 space-y-4">
+                <span class="font-serif text-3xl font-bold italic tracking-tight text-white block">Calibre <span class="text-mist-300 not-italic text-lg font-sans font-medium align-middle">by Daftar</span></span>
+                <p class="text-xs text-mist-350 leading-relaxed max-w-xs font-serif">
+                    One role · two weeks · fixed fee. A written standard first, then every finalist read against it.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">Calibre Verdict</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#noise" class="hover:text-white transition-colors">The Problem</a></li>
+                    <li><a href="#method" class="hover:text-white transition-colors">The Method</a></li>
+                    <li><a href="#outputs" class="hover:text-white transition-colors">Deliverables</a></li>
+                    <li><a href="#pilot" class="hover:text-white transition-colors">How It Runs</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">Get in touch</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="mailto:ahmad@daftaradvisory.com" class="hover:text-white transition-colors">ahmad@daftaradvisory.com</a></li>
+                    <li><a href="https://wa.me/962798880035" class="hover:text-white transition-colors">+962 79 888 0035</a></li>
+                    <li><a href="https://daftaradvisory.com" class="hover:text-white transition-colors">Daftar Advisory</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 border-t border-forest-700 pt-8 space-y-4 text-xs">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-mist-300 font-serif">&copy; 2026 Calibre by Daftar · A product of Daftar Advisory · Amman</p>
+                <div class="flex gap-6 text-mist-350">
+                    <a href="mailto:ahmad@daftaradvisory.com" class="hover:text-white transition-colors">Email</a>
+                    <a href="https://daftaradvisory.com" class="hover:text-white transition-colors">Daftar</a>
+                </div>
+            </div>
+            <p class="text-mist-300 leading-relaxed text-center sm:text-left">Structured hiring advisory for finance roles. Not a psychometric assessment. Does not predict performance. The decision, and its consequences, rest with the employer.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobileMenu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', function () {
+                    const open = menu.classList.toggle('hidden') === false;
+                    toggle.setAttribute('aria-expanded', String(open));
+                    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                });
+                menu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        menu.classList.add('hidden');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        toggle.setAttribute('aria-label', 'Open menu');
+                    });
+                });
+            }
+            if (window.lucide) lucide.createIcons();
+        })();
+    </script>
+    <script>
+        (function () {
+            const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const reveals = document.querySelectorAll('[data-reveal]');
+            if (rm || !('IntersectionObserver' in window)) {
+                reveals.forEach(function (el) { el.classList.add('is-in'); });
+            } else {
+                const ro = new IntersectionObserver(function (es) {
+                    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); ro.unobserve(e.target); } });
+                }, { threshold: 0.15 });
+                reveals.forEach(function (el) { ro.observe(el); });
+            }
+
+            const card = document.getElementById('proofCard');
+            if (card) {
+                const counters = card.querySelectorAll('[data-count]');
+                function runCount() {
+                    counters.forEach(function (el) {
+                        const target = parseInt(el.getAttribute('data-count'), 10);
+                        if (rm) { el.textContent = target; return; }
+                        const dur = 1100, t0 = performance.now();
+                        el.textContent = '0';
+                        (function step(now) {
+                            const p = Math.min((now - t0) / dur, 1);
+                            el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+                            if (p < 1) requestAnimationFrame(step);
+                        })(t0);
+                    });
+                }
+                if (rm || !('IntersectionObserver' in window)) { card.classList.add('is-in'); runCount(); }
+                else {
+                    const co = new IntersectionObserver(function (es) {
+                        es.forEach(function (e) { if (e.isIntersecting) { card.classList.add('is-in'); runCount(); co.disconnect(); } });
+                    }, { threshold: 0.4 });
+                    co.observe(card);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

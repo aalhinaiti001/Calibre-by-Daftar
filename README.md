@@ -1,8 +1,8 @@
 # Calibre by Daftar — design archive
 
 This repository preserves the early Calibre design canvas, presentation deck,
-component cards, and the retired standalone website bundle. Apart from `calibre-verdict-site/`, it is an
-archive, not a deployable or normative Calibre implementation.
+component cards, and the retired standalone website bundle. Apart from `calibre-verdict-site/` and
+`calibre-landing/`, it is an archive, not a deployable or normative Calibre implementation.
 
 ## Canonical sources
 
@@ -22,3 +22,9 @@ They contain superseded positioning and claims and must not be republished.
 JavaScript, no build step) for the guided five-room Calibre Verdict page. It is
 built from `calibre-design-canvas/Calibre Guided.dc.html`. See its README for
 editing and deployment.
+
+## Calibre landing page
+
+`calibre-landing/` is a deployable single-file landing page, a long-scroll
+alternative to the guided site, with the same copy. It is aligned with the
+Calibre Brand Handbook v2.0-Canon. See its README for sections and deployment.
